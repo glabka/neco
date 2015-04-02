@@ -1,56 +1,62 @@
-%%Definice konstant a promennych
-syms k1 k2 k3 phim phip phimd phipd M kmot delta b Jm Jp m r l g;
+t = kyvadlo_poc_podm(:,1);
+% phim = scopearray(:,2);
+% plot(t, phim, 'r');
+% 
+% u = 0.2;
+% k = 37000;
+% T = 0.16;
+% 
+% G = tf(k, [T 1 0]);
+% 
+% hold on;
+% step(u*G, 1)
 
-%Substituovane konstanty
-k1 = (Jm + m*r^2);
-k2 = (m*l*r);
-k3 = (m*g*l);
+phip = kyvadlo_poc_podm(:,3);
+phip = phip-phip(end);
+plot(t, phip, 'r');
+legend('Pùvodní systém');
 
-%%Stavovy popis
-%Definice stavu
-x1 = phim;
-x2 = phip;
-x3 = phimd;
-x4 = phipd;
-xs = [x1; x2; x3; x4];
+syms c1 c2 c3
+t0 = 3.5;
+x10 = 62;
+A1 = 60;
+A2 = 58;
+t1 = 9;
+T = 0.7;
+eq1 = 2*(c1 + c2)/(sqrt(4*c1*c3-c2^2)) == 1;
+omega = 2*pi/T;
+eq2 = sqrt(4*c1*c2 - c2^2)/(2*c1) == omega;
+%eq3 = 2*x10*sin(t1*sqrt(4*c1*c3 - c2^2)/(2*c1))*exp(-c2*t1/(2*c1))*(c1+c2)/(sqrt(4*c1*c3-c2^2)) == -36;
+eq3 = -c2*T/(2*c1) == log(A1/A2);
+%[c1s, c2s, c3s] = solve(eq1, eq2, eq3, c1, c2, c3);
 
-u1 = M;
-us = u1;
+f = x10*sin(omega*t).*exp(-0.08*t);
+hold on
+%plot(t+t0, f)
 
-%Stavove rovnice
-x1d = x3;
-x2d = x4;
-x3d = (-Jp*k2*cos(x2)*x4^2 + 2*delta*k2*sin(x2)*x4 - Jp*M + Jp*b*x3 + k2*k3*cos(x2)*sin(x2))/(-Jp*k1 + k2^2*sin(x2));
-x4d = (2*delta*x3 + k3*cos(x2) - k2^2/k1*sin(x2)*cos(x2)*x4 - k2/k1*sin(x2)*M + k2*b/k1*sin(x2)*x4)/(-Jp+k2^2/k1*sin(x2)^2);
-xds = [x1d x2d x3d x4d];
+phip0 = 62;
+A1 = 60;
+A2 = 58;
+Td = 0.725;
+k = 0;
+mi = log(A1/A2);
+zeta = mi/sqrt(4*pi^2+mi^2);
+omegan = 2*pi/(Td*sqrt(1-zeta^2));
 
-y1 = x1;
-y2 = x2;
-ys = [y1 y2];
+H = tf(k*omegan^2, [1 2*zeta*omegan omegan^2]);
+%[A, B, C, D] = tf2ss(H.num{1}, H.den{1});
+A = [0 1;...
+     -omegan^2 -2*zeta*omegan];
+B = [0; k*omegan^2];
+C = [1 0];
+D = 0;
 
-%%Linearizace
-%Pracovni bod
-y1p = 0;
-y2p = 0;
-[x1p, x2p, x3p, x4p, up1, params, conds] = solve([x1d == 0, x2d == 0, x3d == 0, x4d == 0, y1 == y1p, y2 == y2p], [x1, x2, x3, x4, u1], 'ReturnConditions', true);
-xps = [x1p; x2p; x3p; x4p];
-ups = up1;
 
-%Jakobiany stavovych rovnic
-Alin = jacobian(xds, xs);
-Blin = jacobian(xds, u1);
-Clin = jacobian(ys, xs);
-Dlin = jacobian(ys, u1);
+hold on;
+[init, init_t] = initial(ss(A, B, C, D), [phip0, 0]);
+plot(init_t+3.5, init);
+legend('Pùvodní systém', 'Odhadnutý systém');
 
-%Zadane parametry
-m = 0.175;
-g = 9.81;
 
-%Zjistene parametry
-%zatim nic :(
-
-%Dosazeni pracovniho bodu
-Alin = subs(Alin, xs, xps);
-Blin = subs(Blin, us, ups);
-Clin = subs(Clin, xs, xps);
-Dlin = subs(Dlin, us, ups);
+%[st, stt] = step(u*H);
+%plot(stt+4, -(st-31), t, phip);
