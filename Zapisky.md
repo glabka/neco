@@ -1,5 +1,11 @@
 #Lab. úloha
 
+##Saturace a pásma necitlivosti
+###Na vstupu u_mot
+pásmo necitlivosti:
+saturace: +-1
+
+
 ## 1. rce
 
 ###Naměřené
