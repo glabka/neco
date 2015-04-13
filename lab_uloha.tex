@@ -2,7 +2,7 @@
 \usepackage[czech]{babel}
 \usepackage[utf8]{inputenc}
 %\usepackage{siunitx}
-%\usepackage{amsmath} %Abych mohl požívat příkaz \eqref{•}
+\usepackage{amsmath}
 \usepackage{float} %kvůli umístění tabulek a podobně.
 \usepackage{graphicx}
 %\usepackage[]{mcode} %pro matlabovský kód
@@ -16,7 +16,57 @@
 \begin{document}
 \maketitle
 
+%\newcommand{\xjd}{\dot{x}_1} %o == one == 1, číslice v příkazu totiž být nemůžou
+\newcommand{\xd}[1]{\dot{x}_{#1}} %př. \xd{1} == \xjd
+%\newcommand{\phimd}{\dot{\varphi}_m}
+\newcommand{\phid}[1]{\dot{\varphi}_{#1}}
+\newcommand{\phin}[1]{\varphi_{#1}} %phi normální (nederivované)
 
 \section*{Rovnice}
+$$
+J \, \mathrm{J}
+$$
+$$
+\xd{1} = \phid{m}
+$$
+$$
+\xd{2} = \phid{p}
+$$
+
+\begin{figure}[H]
+%\hspace{-10 cm}
+\begin{equation}
+\xd{3} = \frac{g\, r\, \cos\!\left(\mathrm{\phin{p}}\right)\, \sin\!\left(\mathrm{\phin{p}}\right)\, l^2\, m^2 - \mathrm{J_p}\, r\, \cos\!\left(\mathrm{\phin{p}}\right)\, l\, m\, {\mathrm{\phid{p}}}^2 + 2\, \mathrm{\delta}\, r\, \sin\!\left(\mathrm{\phin{p}}\right)\, l\, m\, \mathrm{\phid{p}} + \mathrm{J_p}\, b\, \mathrm{\phid{m}} - \mathrm{J_p}\, M}{- \mathrm{J_p}\, \left(m\, r^2 + \mathrm{J_m}\right) + l^2\, m^2\, r^2\, \sin^2\!\left(\mathrm{\phin{p}}\right)}
+\end{equation}
+\end{figure}
+
+\begin{figure}[H]
+\begin{equation}
+\xd{4} = \frac{2\, \mathrm{\delta}\, \mathrm{\phid{p}} + g\, l\, m\, \cos\!\left(\mathrm{\phin{p}}\right) + \frac{b\, l\, m\, \mathrm{\phid{m}}\, r\, \sin\!\left(\mathrm{\phin{p}}\right)}{m\, r^2 + \mathrm{J_m}} - \frac{\mathrm{M}\, l\, m\, r\, \sin\!\left(\mathrm{\phin{p}}\right)}{m\, r^2 + \mathrm{J_m}} - \frac{l^2\, m^2\, \mathrm{\phid{p}}\, r^2\, \cos\!\left(\mathrm{\phin{p}}\right)\, \sin\!\left(\mathrm{\phin{p}}\right)}{m\, r^2 + \mathrm{J_m}}}{-\mathrm{J_p} + \frac{l^2\, m^2\, r^2\, {\sin\!\left(\mathrm{\phin{p}}\right)}^2}{m\, r^2 + \mathrm{J_m}}}
+\end{equation}
+\end{figure}
+
+
+
+
+$$
+x_1 = \phin{m}
+$$
+$$
+x_2 = \phin{p}
+$$
+$$
+x_3 = \phid{m}
+$$
+$$
+x_4 = \phid{p}
+$$
+$$
+y_1 = x_1
+$$
+$$
+y_2 = x_2
+$$
+
 
 \end{document}
