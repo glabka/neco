@@ -24,30 +24,43 @@
 
 \section*{Rovnice}
 $$
-J \, \mathrm{J}
-$$
-$$
 \xd{1} = \phid{m}
 $$
 $$
 \xd{2} = \phid{p}
 $$
 
-\begin{figure}[H]
-%\hspace{-10 cm}
-\begin{equation}
-\xd{3} = \frac{g\, r\, \cos\!\left(\mathrm{\phin{p}}\right)\, \sin\!\left(\mathrm{\phin{p}}\right)\, l^2\, m^2 - \mathrm{J_p}\, r\, \cos\!\left(\mathrm{\phin{p}}\right)\, l\, m\, {\mathrm{\phid{p}}}^2 + 2\, \mathrm{\delta}\, r\, \sin\!\left(\mathrm{\phin{p}}\right)\, l\, m\, \mathrm{\phid{p}} + \mathrm{J_p}\, b\, \mathrm{\phid{m}} - \mathrm{J_p}\, M}{- \mathrm{J_p}\, \left(m\, r^2 + \mathrm{J_m}\right) + l^2\, m^2\, r^2\, \sin^2\!\left(\mathrm{\phin{p}}\right)}
-\end{equation}
-\end{figure}
-
-\begin{figure}[H]
-\begin{equation}
-\xd{4} = \frac{2\, \mathrm{\delta}\, \mathrm{\phid{p}} + g\, l\, m\, \cos\!\left(\mathrm{\phin{p}}\right) + \frac{b\, l\, m\, \mathrm{\phid{m}}\, r\, \sin\!\left(\mathrm{\phin{p}}\right)}{m\, r^2 + \mathrm{J_m}} - \frac{\mathrm{M}\, l\, m\, r\, \sin\!\left(\mathrm{\phin{p}}\right)}{m\, r^2 + \mathrm{J_m}} - \frac{l^2\, m^2\, \mathrm{\phid{p}}\, r^2\, \cos\!\left(\mathrm{\phin{p}}\right)\, \sin\!\left(\mathrm{\phin{p}}\right)}{m\, r^2 + \mathrm{J_m}}}{-\mathrm{J_p} + \frac{l^2\, m^2\, r^2\, {\sin\!\left(\mathrm{\phin{p}}\right)}^2}{m\, r^2 + \mathrm{J_m}}}
-\end{equation}
-\end{figure}
-
-
-
+%%%%%%%%%%%%%%%%Rovnice ze zadání (přepsané pro naše stavy)%%%%%%%%%%%
+%Zabaleni sin a cos bych se mohl rozhodnout, zda bude argument v závorce, či ne.
+\newcommand{\coss}[1]{\cos{#1}}
+\newcommand{\sinn}[1]{\sin{#1}}
+\newcommand{\sinnN}[1]{\sin^2{#1}} %N = nadruhou
+$$
+k_1 = J_m + m r^2
+$$
+$$
+k_2 = m l r
+$$
+$$
+k_3 = m g l
+$$
+$$
+\xd{3} =
+\frac{
+	-J_p k_2 \coss{x_2} x_4^2 + 2 \delta k_2 \sinn{x_2} x_4 - J_p M + J_p b x_3 	+ k_2 k_3 \coss{x_2} \sinn{x_2}
+}{
+ 	-J_p k_1 + k_2^2 \sinnN{x_2}
+}
+$$
+$$
+\xd{4} =
+\frac{
+	2 \delta x_4 + k_3 \coss{x_2} - \frac{k_2^2}{k_1} \sinn{x_2} \coss{x_2} 			 	x_4^2 - \frac{k_2}{k_1} \sinn{x_2} M + \frac{k_2 b}{k_1} \sinn{x_2} x_3
+}{
+	-J_p + \frac{k_2^2}{k_1} \sinnN{x_2}
+}
+$$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 $$
 x_1 = \phin{m}
