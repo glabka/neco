@@ -16,13 +16,17 @@
 \begin{document}
 \maketitle
 
-%\newcommand{\xjd}{\dot{x}_1} %o == one == 1, číslice v příkazu totiž být nemůžou
-\newcommand{\xd}[1]{\dot{x}_{#1}} %př. \xd{1} == \xjd
-%\newcommand{\phimd}{\dot{\varphi}_m}
-\newcommand{\phid}[1]{\dot{\varphi}_{#1}}
-\newcommand{\phin}[1]{\varphi_{#1}} %phi normální (nederivované)
 
 \section*{Rovnice}
+\newcommand{\x}[1]{x_{#1}}
+\newcommand{\xd}[1]{\dot{x}_{#1}}
+\newcommand{\M}{M}
+\newcommand{\phid}[1]{\dot{\varphi}_{#1}}
+\newcommand{\phin}[1]{\varphi_{#1}} %phi normální (nederivované)
+\newcommand{\coss}[1]{\cos{(#1)}}
+\newcommand{\sinn}[1]{\sin{(#1)}}
+\newcommand{\sinnN}[1]{\sin^2{(#1)}} %N = nadruhou
+
 $$
 \xd{1} = \phid{m}
 $$
@@ -32,9 +36,6 @@ $$
 
 %%%%%%%%%%%%%%%%Rovnice ze zadání (přepsané pro naše stavy)%%%%%%%%%%%
 %Zabaleni sin a cos bych se mohl rozhodnout, zda bude argument v závorce, či ne.
-\newcommand{\coss}[1]{\cos{#1}}
-\newcommand{\sinn}[1]{\sin{#1}}
-\newcommand{\sinnN}[1]{\sin^2{#1}} %N = nadruhou
 $$
 k_1 = J_m + m r^2
 $$
@@ -47,17 +48,17 @@ $$
 $$
 \xd{3} =
 \frac{
-	-J_p k_2 \coss{x_2} x_4^2 + 2 \delta k_2 \sinn{x_2} x_4 - J_p M + J_p b x_3 	+ k_2 k_3 \coss{x_2} \sinn{x_2}
+	-J_p k_2 \coss{\x{2}} \x{4}^2 + 2 \delta k_2 \sinn{\x{2}} \x{4} - J_p \M + J_p b \x{3} 	+ k_2 k_3 \coss{\x{2}} \sinn{\x{2}}
 }{
- 	-J_p k_1 + k_2^2 \sinnN{x_2}
+ 	-J_p k_1 + k_2^2 \sinnN{\x{2}}
 }
 $$
 $$
 \xd{4} =
 \frac{
-	2 \delta x_4 + k_3 \coss{x_2} - \frac{k_2^2}{k_1} \sinn{x_2} \coss{x_2} 			 	x_4^2 - \frac{k_2}{k_1} \sinn{x_2} M + \frac{k_2 b}{k_1} \sinn{x_2} x_3
+	2 \delta \x{4} + k_3 \coss{\x{2}} - \frac{k_2^2}{k_1} \sinn{\x{2}} \coss{\x{2}} 			 	\x{4}^2 - \frac{k_2}{k_1} \sinn{\x{2}} M + \frac{k_2 b}{k_1} \sinn{\x{2}} \x{3}
 }{
-	-J_p + \frac{k_2^2}{k_1} \sinnN{x_2}
+	-J_p + \frac{k_2^2}{k_1} \sinnN{\x{2}}
 }
 $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
