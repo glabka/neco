@@ -14,7 +14,7 @@ t = odezva_skok_02(:,1);
 phim = odezva_skok_02(:,2);
 %phip = odezva_skok_02(:,3);
 
-k = 37000;  %Prevest na radiany!
+k = 37000*kram_rad;  %Prevedeno na radiany!
 T = 0.16;
 
 s = tf('s');
@@ -22,8 +22,9 @@ H1 = k/(s*(T*s+1));
 [st, st_t] = step(0.2*H1, t(end));
 
 figure;
-plot(t, phim, st_t, st);
+plot(t, phim, st_t, st/kram_rad);
 
+b = ku/k;
 
 %%
 %2. rce ze zadani (se zanedbanymi cleny)

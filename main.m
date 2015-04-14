@@ -1,6 +1,8 @@
 %%
 %Definice konstant a promennych
 syms k1 k2 k3 phim phip phimd phipd M kmot delta b Jm Jp m r l g u;
+setup_vars
+
 
 %Substituovane konstanty
 % k1 = (Jm + m*r^2);
@@ -24,7 +26,7 @@ us = u1;
 x1d = x3;
 x2d = x4;
 x3d = (-Jp*k2*cos(x2)*x4^2 + 2*delta*k2*sin(x2)*x4 - Jp*M + Jp*b*x3 + k2*k3*cos(x2)*sin(x2))/(-Jp*k1 + k2^2*sin(x2)^2);
-x4d = (2*delta*x4 + k3*cos(x2) - k2^2/k1*sin(x2)*cos(x2)*x4 - k2/k1*sin(x2)*M + k2*b/k1*sin(x2)*x3)/(-Jp+k2^2/k1*sin(x2)^2);
+x4d = (2*delta*x4 + k3*cos(x2) - k2^2/k1*sin(x2)*cos(x2)*x4^2 - k2/k1*sin(x2)*M + k2*b/k1*sin(x2)*x3)/(-Jp+k2^2/k1*sin(x2)^2);
 xds = [x1d; x2d; x3d; x4d];
 
 y1 = x1;
@@ -62,16 +64,18 @@ r = 0.2;
 
 %Zjistene parametry (i sdruzene)
 % sdr1 = kmot/b == 3700;
-b = 1/3700;
-k1 = 0.16*b;
-% sdr2 = (Jm+m*r^2)/b == 0.16;
+%ku = 12680000;
+ku = 8;
+kram_rad = 2*pi/7300;
+kkyv_rad = -2*pi/2000;
 glabatom;
+%b = 1/3700/kram_rad;
+k1 = 0.16*b;
+k2 = eval(k2);
+k3 = eval(k3);
+% sdr2 = (Jm+m*r^2)/b == 0.16;
 close all;
 
-%TOHLE JE JEN TAK -- JE TO BLBE!
-Jm = 1;
-b = 1;
-kmot = 1;
 
 %Dosazeni pracovniho bodu
 Alin = subs(Alin, xs, xps);
@@ -83,3 +87,5 @@ Alin = eval(Alin);
 Blin = eval(Blin);
 Clin = eval(Clin);
 Dlin = eval(Dlin);
+
+x0 = [x1p; x2p; x3p; x4p];
