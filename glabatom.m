@@ -10,6 +10,7 @@ close all;
 %1. rce ze zadani (se zanedbanymi cleny)
 %phim = (ku/b)/(s*((Jm+m*r^2)/b*s + 1))
 %phim = (k)/(s*(T*s + 1))
+load('odezva_skok_02.mat');
 t = odezva_skok_02(:,1);
 phim = odezva_skok_02(:,2);
 %phip = odezva_skok_02(:,3);
