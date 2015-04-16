@@ -15,7 +15,8 @@ t = odezva_skok_02(:,1);
 phim = odezva_skok_02(:,2);
 %phip = odezva_skok_02(:,3);
 
-k = 37000*kram_rad;  %Prevedeno na radiany!
+k = 37000*kram_rad;  %Prevedeno na radiany! 37500
+% k = 37500*kram_rad;  %Prevedeno na radiany!
 T = 0.16;
 
 s = tf('s');
@@ -24,6 +25,7 @@ H1 = k/(s*(T*s+1));
 
 figure;
 plot(t, phim, st_t, st/kram_rad);
+legend('Namerene hodnoty', 'Odhadovane hodnoty');
 
 b = ku/k;
 

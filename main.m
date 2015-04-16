@@ -49,6 +49,7 @@ x4p = 0;
 up1 = 0;
 y1p = 0;
 y2p = -pi/2;
+M = up1;
 %[x1p, x2p, x3p, x4p, up1, params, conds] = solve([x1d == 0, x2d == 0, x3d == 0, x4d == 0, y1 == y1p, y2 == y2p], [x1, x2, x3, x4, u1], 'ReturnConditions', true);
 %[y1p, y2p, up1, params, conds] = solve([x1d == 0, x2d == 0, x3d == 0, x4d == 0, y1 == y1p, y2 == y2p], [x1, x2, x3, x4, u1], 'ReturnConditions', true);
 xps = [x1p; x2p; x3p; x4p];
@@ -70,7 +71,7 @@ kram_rad = 2*pi/7300;
 kkyv_rad = -2*pi/2000;
 glabatom;
 %b = 1/3700/kram_rad;
-k1 = 0.16*b;
+k1 = T*b;
 k2 = eval(k2);
 k3 = eval(k3);
 % sdr2 = (Jm+m*r^2)/b == 0.16;
@@ -85,7 +86,7 @@ Dlin = subs(Dlin, us, ups);
 
 Alin = eval(Alin);
 Blin = eval(Blin);
-Clin = eval(Clin);
-Dlin = eval(Dlin);
+% Clin = eval(Clin);
+% Dlin = eval(Dlin);
 
 x0 = [x1p; x2p; x3p; x4p];
