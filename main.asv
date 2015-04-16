@@ -1,7 +1,7 @@
 %%
 %Definice konstant a promennych
-setup_vars
 syms k1 k2 k3 phim phip phimd phipd M kmot delta b Jm Jp m r l g u;
+setup_vars
 
 
 %Substituovane konstanty
@@ -12,7 +12,6 @@ k3 = (m*g*l);
 %%
 %Stavovy popis
 %Definice stavu
-% syms x1 x2 x3 x4;
 x1 = phim;
 x2 = phip;
 x3 = phimd;
@@ -71,12 +70,12 @@ ku = 8;
 kram_rad = 2*pi/7300;
 kkyv_rad = -2*pi/2000;
 glabatom;
-close all;
 %b = 1/3700/kram_rad;
 k1 = T*b;
 k2 = eval(k2);
 k3 = eval(k3);
 % sdr2 = (Jm+m*r^2)/b == 0.16;
+close all;
 
 
 %Dosazeni pracovniho bodu
