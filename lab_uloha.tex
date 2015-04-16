@@ -65,6 +65,7 @@
 	{\dot{\varphi}_{#2}(t)}
 	{\dot{\varphi}_{#2}}
 	}
+\newcommand{\phidd}[1]{\ddot{\varphi}_{#1}}
 \newcommand{\phin}[2][]{ %phi normální (nederivované)
 	\ifstrequal{#1}{t}	
 	{\varphi_{#2}(t)}
@@ -192,6 +193,13 @@ Při výchylce kyvadla v rozmezí $\pm \SI{12}{\degree}$ je vliv kyvadla na polo
 Další nelinearitu jsme identifikovali u ramene, které se na jednu stranu posouvalo snáze, než na druhou.
 
 \section{Identifikace dynamiky motoru (ramene)}
+$$
+(J_m + m r^2) \phidd{m} - m l r \phidd{p}  \sinn{\phin{p}} - m l r \phid{p}^2 \coss{\phin{p}} + b \phid{m} = \M
+$$
 
+\section{Identifikace dynamiky kyvadla}
+$$
+J_p \phidd{p} + m g l \coss{\phin{p}} - m l r \phidd{m} \sinn{\phin{p}} + 2 \delta \phid{p} = 0
+$$
 
 \end{document}
