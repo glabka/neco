@@ -12,6 +12,8 @@
 \usepackage[utf8]{inputenc}
 
 \usepackage{graphicx}	%kvůli pdf souboru z MATLABu
+\usepackage{caption}		%kvůli umístění několika obrázku do jednoho figuru
+\usepackage{subcaption} %kvůli umístění několika obrázku do jednoho figuru
 \usepackage{setspace}	%rozteče v maticích
 \usepackage{verbatim}   %víceřádkové komentáře
 \usepackage{siunitx}	%hezký jednotky
@@ -281,7 +283,8 @@ Prvky $l$ a $r$ jsme určili naměřením na modelu kyvadla (jedná se o délku 
 Model obsahující naměřená data skutečného systému, linerání a nelinerání model můžete vidět na obrázku \ref{model:celk}. Výstup z MATLABovksého rozhraní skutečného systému není konzistentní s našimi stavy. Museli jsme proto tyto výstupy transformovat do radiánů a vhodné souřadnicové soustavy, tak jak byla definována v zadání simulační úlohy. To zajišťují konstanty \textit{enc{\_}to{\_}rad{\_}ram} a \textit{enc{\_}to{\_}rad{\_}kyv} a odečtení $\pi/2$ od výstupu polohy kyvadla. 
 
 \begin{figure}[H]
-\includegraphics[width=\textwidth]{schema_celku.jpg}
+\centering
+\includegraphics[width=0.7\textwidth]{schema_celku.jpg}
 \caption{Zapojení linearizovaného modelu, nelineárního modelu a naměřených dat}
 \label{model:celk}
 \end{figure}
@@ -290,25 +293,50 @@ Na obrázku \ref{model:lin} můžete vidět zapojení linearizovaného modelu.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{schema_linearizovany.jpg}
+\includegraphics[width=0.5\textwidth]{schema_linearizovany.jpg}
 \caption{Lineárizovaný model}
 \label{model:lin}
 \end{figure}
 
-Nelineární model jsme zapojili podle stavových rovnic.
+Nelineární model jsme zapojili podle stavových rovnic, viz obr. \ref{model:nelin}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{schema_nelinearni_celek.jpg}
+\caption{Nelneární model}
+\label{model:nelin}
+\end{figure}
+
+, kde jednotlivé subsystémy odpovídající třetí a čtvrté stavové rovnici jsou zapojeny následovně.
+
+\begin{figure}
+        \centering
+        \begin{subfigure}[b]{0.5\textwidth}
+                \includegraphics[width=\textwidth]{schema_nelinearni_3difrov.jpg}
+                \caption{Zapojení třetí stavové rovnice}
+                \label{model:nelin:3diff}
+        \end{subfigure}%
+        ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+          %(or a blank line to force the subfigure onto a new line)
+        \begin{subfigure}[b]{0.5\textwidth}
+                \includegraphics[width=\textwidth]{schema_nelinearni_4difrov.jpg}
+                \caption{Zapojení čtvrté stavové rovnice}
+                \label{model:nelin:4diff}
+        \end{subfigure}
+        \caption{Zapojení subsystémů}
+\end{figure}
+  
  
 Pomocí srovnávání výstupu modelů a naměřených dat jsme určitli konstantu $\ku$ vyjadřující předpokládanou lineární závislost $\M$ na $\un$.
  
 Určené parametry modelu jsme ještě upravili tak, aby dobře seděly i pro obecnější případ bez zanedbaných a linerizovaných členů. Tyto upravené hodnoty jsou:
 \begin{align*}
 &b = \SI{0,5193}{\kilo \gram \meter \squared \per \second} \\
-&J_p = 0,0044	&&	\delta = 1,9297\cdot 10^{-4}
+&J_p = \SI{0,0044}{\kilo \gram \metre \per \second \squared}	&&	\delta = \SI{1,9297e-4}{\kg \m \squared \per \second}
 \end{align*}
 
 
-
-
 \section{Provnání odezvy skutečného systému s odezvami linearizovaného a nelinearizovaného modelu}
+Následující grafy ukazují rozdíly mezi naměřenými hodnotami a odezvami modelů. Z grafů je patrné, že pro úhel natočení ramene $\phin{m}$ modely odpovídají poměrně dobře pro malý i větší vstup, zatímco pro úhel natočení kyvadla $\phin{p}$ se pro větší vtup začínají s naměřenými hodnotami rozcházet. Za povšimnutí stojí také skutečnost, že se pro větší vstup poloha kyvadla neustaluje v klidové poloze, jak to v případě obou modelů. Při větším vstupu také jde vidět, jak se postupně začíná rozcházet linearizovaný a nelinární model.
 
 \begin{figure}[H]
 \centering
@@ -323,5 +351,10 @@ Určené parametry modelu jsme ještě upravili tak, aby dobře seděly i pro ob
 \end{figure}
 
 %Tam, kde žijí lvi - konec %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Závěr}
+I přesto, že jsme se snažili parametry systému určit co nejpřesněji, neodpovídají naše modely naměřeným hodnotám reálného systému pro větší vstupy příliš dobře, jak je vidět z porovnávání odezev na skok v sekci 8 (hlavně v poloze kyvadla $\varphi_p$). To může být způsobeno dalšími skrytými nelinearitami systému, použitím rovnic pro kyvadlo na vozíku, které nemusí dostatečně přesně popisovat rotační kyvadlo, zanedbáním případné dynamiky vstupu a zanedbáním vlivu tření vzduchu, které nejspíš způsobuje ustálení polohy kyvadla v jiné poloze, než je klidová, když je rychlost ramene nenulová.
+\newline
+Pro malé vstupy, a ze začátku i pro větší, se ale odezvy systémů celkem shodují, doufáme tedy, že bude tyto modely možné použít pro řízení v dalších částech laboratorní úlohy.
 
 \end{document}
