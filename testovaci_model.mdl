@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.69"
+    ComputedModelVersion    "1.70"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -65,9 +65,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Matous"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Apr 17 12:36:29 2015"
-  RTWModifiedTimeStamp	  351174988
-  ModelVersionFormat	  "1.%<AutoIncrement:69>"
+  LastModifiedDate	  "Fri Apr 17 12:52:42 2015"
+  RTWModifiedTimeStamp	  351175957
+  ModelVersionFormat	  "1.%<AutoIncrement:70>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -2580,7 +2580,7 @@ Model {
       Position		      [175, 160, 205, 190]
       ZOrder		      -22
       Time		      "0"
-      After		      "0.3"
+      After		      "0.1"
       SampleTime	      "0"
     }
     Block {
@@ -2673,6 +2673,8 @@ Model {
       LegendLocations	      "0.91014     0.78806    0.062605    0.046726\n0.91467      0.4339    0.062605    0.046726"
       YMin		      "-5~-5"
       YMax		      "5~5"
+      SaveToWorkspace	      on
+      SaveName		      "vystup"
       DataFormat	      "StructureWithTime"
       SampleTime	      "0"
       ScrollMode	      off
