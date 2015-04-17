@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.76"
+    ComputedModelVersion    "1.77"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -52,10 +52,10 @@ Model {
 	$ClassName		"Simulink.EditorInfo"
 	IsActive		[1]
 	ViewObjType		"SimulinkSubsys"
-	LoadSaveID		"67"
+	LoadSaveID		"31"
 	Extents			[1886.0, 922.0]
-	ZoomFactor		[3.0]
-	Offset			[-46.032403594944086, -38.423536922249561]
+	ZoomFactor		[1.75]
+	Offset			[141.97795196969071, 179.78486349993543]
       }
     }
   }
@@ -65,9 +65,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Matous"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Apr 17 13:26:43 2015"
-  RTWModifiedTimeStamp	  351178003
-  ModelVersionFormat	  "1.%<AutoIncrement:76>"
+  LastModifiedDate	  "Fri Apr 17 13:55:57 2015"
+  RTWModifiedTimeStamp	  351179752
+  ModelVersionFormat	  "1.%<AutoIncrement:77>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1039,7 +1039,7 @@ Model {
       System {
 	Name			"Linearni"
 	Location		[-8, -8, 1928, 1088]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1904,7 +1904,7 @@ Model {
 	  System {
 	    Name		    "4. dif. rovnice"
 	    Location		    [-8, -8, 1928, 1088]
-	    Open		    off
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -1920,7 +1920,7 @@ Model {
 	      BlockType		      Inport
 	      Name		      "u"
 	      SID		      "32"
-	      Position		      [175, 200, 205, 215]
+	      Position		      [320, 445, 350, 460]
 	      ZOrder		      59
 	      BlockRotation	      270
 	      BlockMirror	      on
@@ -1930,7 +1930,7 @@ Model {
 	      BlockType		      Inport
 	      Name		      "x3\n"
 	      SID		      "33"
-	      Position		      [210, 515, 240, 530]
+	      Position		      [320, 515, 350, 530]
 	      ZOrder		      60
 	      BlockRotation	      270
 	      BlockMirror	      on
@@ -1941,7 +1941,7 @@ Model {
 	      BlockType		      Inport
 	      Name		      "x2"
 	      SID		      "34"
-	      Position		      [20, 228, 50, 242]
+	      Position		      [240, 288, 270, 302]
 	      ZOrder		      65
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -2026,7 +2026,7 @@ Model {
 	      BlockType		      Gain
 	      Name		      "Gain6"
 	      SID		      "42"
-	      Position		      [885, 695, 915, 725]
+	      Position		      [645, 635, 675, 665]
 	      ZOrder		      57
 	      Gain		      "k2^2/k1"
 	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -2038,7 +2038,7 @@ Model {
 	      Name		      "Integrator2"
 	      SID		      "43"
 	      Ports		      [1, 1]
-	      Position		      [990, 320, 1020, 350]
+	      Position		      [855, 320, 885, 350]
 	      ZOrder		      32
 	      InitialCondition	      "x4p"
 	      Port {
@@ -2101,7 +2101,7 @@ Model {
 	      Name		      "Product5"
 	      SID		      "48"
 	      Ports		      [2, 1]
-	      Position		      [760, 692, 790, 723]
+	      Position		      [520, 632, 550, 663]
 	      ZOrder		      58
 	      InputSameDT	      off
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -2171,7 +2171,7 @@ Model {
 	      Name		      "Trigonometric\nFunction3"
 	      SID		      "54"
 	      Ports		      [1, 1]
-	      Position		      [685, 700, 715, 730]
+	      Position		      [445, 640, 475, 670]
 	      ZOrder		      56
 	    }
 	    Block {
@@ -2203,7 +2203,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "x4"
 	      SID		      "58"
-	      Position		      [1090, 328, 1120, 342]
+	      Position		      [955, 328, 985, 342]
 	      ZOrder		      67
 	      IconDisplay	      "Port number"
 	    }
@@ -2265,7 +2265,7 @@ Model {
 	      ZOrder		      9
 	      SrcBlock		      "Gain6"
 	      SrcPort		      1
-	      Points		      [14, 0; 0, -285]
+	      Points		      [131, 0; 0, -225]
 	      DstBlock		      "Sum"
 	      DstPort		      2
 	    }
@@ -2283,7 +2283,7 @@ Model {
 	      }
 	      Branch {
 		ZOrder			12
-		Points			[0, -134; -649, 0; 0, 39]
+		Points			[0, -134; -514, 0; 0, 39]
 		Branch {
 		  ZOrder		  13
 		  DstBlock		  "Gain"
@@ -2410,7 +2410,7 @@ Model {
 	      ZOrder		      30
 	      SrcBlock		      "u"
 	      SrcPort		      1
-	      Points		      [0, 245]
+	      Points		      [0, 8; 118, 0; 0, -8]
 	      DstBlock		      "Product3"
 	      DstPort		      1
 	    }
@@ -2418,38 +2418,22 @@ Model {
 	      ZOrder		      31
 	      SrcBlock		      "x2"
 	      SrcPort		      1
-	      Points		      [53, 0; 0, 60]
+	      Points		      [25, 0]
 	      Branch {
-		ZOrder			32
-		DstBlock		"Trigonometric\nFunction1"
-		DstPort			1
-	      }
-	      Branch {
-		ZOrder			33
+		ZOrder			46
 		Points			[0, 75]
 		Branch {
-		  ZOrder		  34
-		  DstBlock		  "Trigonometric\nFunction7"
-		  DstPort		  1
-		}
-		Branch {
-		  ZOrder		  35
+		  ZOrder		  47
 		  Points		  [0, 56]
 		  Branch {
-		    ZOrder		    36
-		    Points		    [267, 0]
-		    DstBlock		    "Trigonometric\nFunction6"
-		    DstPort		    1
-		  }
-		  Branch {
-		    ZOrder		    37
+		    ZOrder		    48
 		    Points		    [0, 69]
 		    Branch {
-		    ZOrder		    38
+		    ZOrder		    49
 		    Points		    [0, 80]
 		    Branch {
-		    ZOrder		    39
-		    Points		    [0, 140]
+		    ZOrder		    50
+		    Points		    [0, 80]
 		    DstBlock		    "Trigonometric\nFunction3"
 		    DstPort		    1
 		    }
@@ -2465,14 +2449,30 @@ Model {
 		    DstPort		    1
 		    }
 		  }
+		  Branch {
+		    ZOrder		    36
+		    Points		    [75, 0]
+		    DstBlock		    "Trigonometric\nFunction6"
+		    DstPort		    1
+		  }
 		}
+		Branch {
+		  ZOrder		  34
+		  DstBlock		  "Trigonometric\nFunction7"
+		  DstPort		  1
+		}
+	      }
+	      Branch {
+		ZOrder			32
+		DstBlock		"Trigonometric\nFunction1"
+		DstPort			1
 	      }
 	    }
 	    Line {
 	      ZOrder		      42
 	      SrcBlock		      "x3\n"
 	      SrcPort		      1
-	      Points		      [0, 15; 273, 0; 0, 10]
+	      Points		      [0, 15; 163, 0; 0, 10]
 	      DstBlock		      "Product4"
 	      DstPort		      1
 	    }
