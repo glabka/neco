@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.70"
+    ComputedModelVersion    "1.73"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -51,11 +51,11 @@ Model {
 	$ObjectID		5
 	$ClassName		"Simulink.EditorInfo"
 	IsActive		[1]
-	ViewObjType		"SimulinkTopLevel"
-	LoadSaveID		"0"
+	ViewObjType		"SimulinkSubsys"
+	LoadSaveID		"5"
 	Extents			[1886.0, 922.0]
-	ZoomFactor		[3.0]
-	Offset			[75.598931885989131, 3.71918325612023]
+	ZoomFactor		[1.75]
+	Offset			[-126.63624504174972, 5.0130222108730518]
       }
     }
   }
@@ -65,9 +65,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Matous"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Apr 17 12:52:42 2015"
-  RTWModifiedTimeStamp	  351175957
-  ModelVersionFormat	  "1.%<AutoIncrement:70>"
+  LastModifiedDate	  "Fri Apr 17 13:17:15 2015"
+  RTWModifiedTimeStamp	  351177432
+  ModelVersionFormat	  "1.%<AutoIncrement:73>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -994,7 +994,7 @@ Model {
   System {
     Name		    "testovaci_model"
     Location		    [-8, -8, 1928, 1088]
-    Open		    on
+    Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1038,7 +1038,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Linearni"
-	Location		[16, 52, 1438, 954]
+	Location		[-8, -8, 1928, 1088]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1259,12 +1259,12 @@ Model {
 	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"100"
+	ZoomFactor		"250"
 	Block {
 	  BlockType		  Inport
 	  Name			  "u"
 	  SID			  "2"
-	  Position		  [25, 33, 55, 47]
+	  Position		  [10, 33, 40, 47]
 	  ZOrder		  6
 	  IconDisplay		  "Port number"
 	}
@@ -1316,7 +1316,7 @@ Model {
 	  System {
 	    Name		    "3. dif. rovnice"
 	    Location		    [-8, -8, 1928, 1088]
-	    Open		    off
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -1327,12 +1327,12 @@ Model {
 	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "150"
+	    ZoomFactor		    "175"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "u"
 	      SID		      "6"
-	      Position		      [20, 243, 50, 257]
+	      Position		      [70, 243, 100, 257]
 	      ZOrder		      30
 	      IconDisplay	      "Port number"
 	    }
@@ -1340,7 +1340,7 @@ Model {
 	      BlockType		      Inport
 	      Name		      "x2"
 	      SID		      "7"
-	      Position		      [20, 188, 50, 202]
+	      Position		      [70, 188, 100, 202]
 	      ZOrder		      31
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -1349,7 +1349,7 @@ Model {
 	      BlockType		      Inport
 	      Name		      "x4"
 	      SID		      "8"
-	      Position		      [20, 33, 50, 47]
+	      Position		      [70, 33, 100, 47]
 	      ZOrder		      29
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -1446,7 +1446,7 @@ Model {
 	      Name		      "Integrator2"
 	      SID		      "17"
 	      Ports		      [1, 1]
-	      Position		      [810, 190, 840, 220]
+	      Position		      [680, 190, 710, 220]
 	      ZOrder		      8
 	      InitialCondition	      "x3p"
 	      Port {
@@ -1591,7 +1591,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "x3"
 	      SID		      "30"
-	      Position		      [1130, 223, 1160, 237]
+	      Position		      [765, 198, 795, 212]
 	      ZOrder		      32
 	      IconDisplay	      "Port number"
 	    }
@@ -1613,7 +1613,7 @@ Model {
 	      ZOrder		      3
 	      SrcBlock		      "x2"
 	      SrcPort		      1
-	      Points		      [104, 0]
+	      Points		      [54, 0]
 	      Branch {
 		ZOrder			4
 		Points			[0, 140]
@@ -1754,7 +1754,7 @@ Model {
 	      ZOrder		      24
 	      SrcBlock		      "x4"
 	      SrcPort		      1
-	      Points		      [60, 0]
+	      Points		      [10, 0]
 	      Branch {
 		ZOrder			25
 		DstBlock		"Product1"
@@ -1787,15 +1787,15 @@ Model {
 	      Labels		      [0, 0]
 	      SrcBlock		      "Integrator2"
 	      SrcPort		      1
-	      Points		      [159, 0; 0, 25]
+	      Points		      [35, 0]
 	      Branch {
-		ZOrder			30
-		Points			[0, 306; -821, 0; 0, -236]
+		ZOrder			40
+		Points			[0, 310; -567, 0; 0, -215]
 		DstBlock		"Gain3"
 		DstPort			1
 	      }
 	      Branch {
-		ZOrder			31
+		ZOrder			39
 		DstBlock		"x3"
 		DstPort			1
 	      }
@@ -2491,7 +2491,7 @@ Model {
 	  Branch {
 	    ZOrder		    3
 	    Labels		    [3, 0]
-	    Points		    [0, -73; -133, -1; 0, -152]
+	    Points		    [0, -74; -133, 0; 0, -151]
 	    DstBlock		    "3. dif. rovnice"
 	    DstPort		    3
 	  }
@@ -2508,7 +2508,7 @@ Model {
 	  Labels		  [0, 0]
 	  SrcBlock		  "2. dif. rovnice"
 	  SrcPort		  1
-	  Points		  [20, 2]
+	  Points		  [20, 0]
 	  Branch {
 	    ZOrder		    6
 	    DstBlock		    "phip"
@@ -2516,19 +2516,19 @@ Model {
 	  }
 	  Branch {
 	    ZOrder		    7
-	    Labels		    [2, 1]
-	    Points		    [0, -192; -260, 0]
+	    Labels		    [2, 0]
+	    Points		    [0, -190; -260, 0]
 	    Branch {
 	      ZOrder		      8
 	      Labels		      [1, 1]
-	      Points		      [0, 211]
+	      Points		      [0, 210]
 	      DstBlock		      "4. dif. rovnice"
 	      DstPort		      3
 	    }
 	    Branch {
 	      ZOrder		      9
 	      Labels		      [2, 1]
-	      Points		      [0, -56]
+	      Points		      [0, -55]
 	      DstBlock		      "3. dif. rovnice"
 	      DstPort		      2
 	    }
@@ -2543,7 +2543,7 @@ Model {
 	  Branch {
 	    ZOrder		    11
 	    Labels		    [3, 0]
-	    Points		    [0, 129; -137, 1; 0, 116]
+	    Points		    [0, 130; -137, 0; 0, 115]
 	    DstBlock		    "4. dif. rovnice"
 	    DstPort		    2
 	  }
@@ -2557,16 +2557,16 @@ Model {
 	  ZOrder		  13
 	  SrcBlock		  "u"
 	  SrcPort		  1
-	  Points		  [0, -1; 13, 0]
+	  Points		  [28, 0]
 	  Branch {
-	    ZOrder		    14
+	    ZOrder		    19
 	    Labels		    [1, 0]
-	    Points		    [0, 247]
+	    Points		    [0, 245]
 	    DstBlock		    "4. dif. rovnice"
 	    DstPort		    1
 	  }
 	  Branch {
-	    ZOrder		    15
+	    ZOrder		    18
 	    DstBlock		    "3. dif. rovnice"
 	    DstPort		    1
 	  }
