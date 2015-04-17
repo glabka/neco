@@ -193,13 +193,46 @@ Při výchylce kyvadla v rozmezí $\pm \SI{12}{\degree}$ je vliv kyvadla na polo
 Další nelinearitu jsme identifikovali u ramene, které se na jednu stranu posouvalo snáze, než na druhou.
 
 \section{Identifikace dynamiky motoru (ramene)}
+%Toto teď dopisuje Matouš.
 $$
 (J_m + m r^2) \phidd{m} - m l r \phidd{p}  \sinn{\phin{p}} - m l r \phid{p}^2 \coss{\phin{p}} + b \phid{m} = \M
 $$
 
 \section{Identifikace dynamiky kyvadla}
+Při identifikaci dynamiky kyvadla jsme vycházeli z následující diferenciální rovnice:
 $$
 J_p \phidd{p} + m g l \coss{\phin{p}} - m l r \phidd{m} \sinn{\phin{p}} + 2 \delta \phid{p} = 0
 $$
+Identifikaci jsme prováděli v pásmu necitlivosti vlivu kyvadla na rameno, tj. křížový člen  $m l r \phidd{m} \sinn{\phin{p}}$ se neprojevoval, z rovnice jej tedy vypustíme. Dále nahradíme $\coss{\phin{p}}$ jeho lineární aproximací v pracovním bodu, což v našem případě je $\phin{p}$. Získaná rovnice je tedy následující:
+$$
+J_p \phidd{p} + 2 \delta \phid{p} + m g l \phin{p} = 0
+$$
+
+
+Přenos této rovnice z počátečních podmínek je: 
+$$
+H_{\phin{p}}(s) = \frac{1}{J_p s^2 + 2 \delta s + m g l}
+$$
+\newcommand{\wn}{\omega_n}
+\newcommand{\ut}{\zeta} % útlum
+Tento přenos identifikujeme pomocí přenosu druhého řádu ve tvaru s tlumením $\ut$ a přirozenou frekvencí $\wn$. Porovnáním s přenosovou funkcí $H_{\phin{p}}(s)$ dostáváme:
+$$
+H_{\phin{p}}(s) = \frac{\frac{1}{J_p}}{s^2 + 2 \frac{\delta}{J_p} s + \frac{m g l}{J_p}}
+\overset{!}{=} 
+\frac{k \wn^2}{s^2 + 2 \wn \ut s + \wn^2}
+$$
+Z rovnosti je vidět, že: ,$\frac{m g l}{J_p} = \wn^2$, $\frac{\delta}{J_p} = \wn \ut$. %$\frac{1}{J_p} = k \wn^2$
+Z nich si vyjádříme neznámé, které cheme získat, tedy $J_p = \frac{m g l}{\wn^2}$ a $\delta = J_p \wn \ut$. $\wn$ a $\ut$ zjistíme identifikací z odezvy na počáteční podmínku, $m = \SI{0,175}{\kg}$ (viz. zadání), $g$ je tíhové zrychlení a $l = \SI{0,17}{\metre}$ (změřená délku kyvadla).
+
+%Obrázek
+%
+%
+%
+
+
+Platí, že $\mu \equiv \ln{(\frac{A_1}{A_2})} \doteq 0,0339$, $\ut = \frac{\mu}{\sqrt{4 \pi^2 + \mu^2}} \doteq 0,0054$, $\wn = \frac{2 \pi}{T_d \sqrt{1 - \ut^2}} \doteq 8,6666$.
+
+
+
 
 \end{document}
