@@ -15,8 +15,8 @@ t = odezva_skok_02(:,1);
 phim = odezva_skok_02(:,2)*kram_rad;
 %phip = odezva_skok_02(:,3);
 
-k = 37000*kram_rad;  %Prevedeno na radiany! 37500
-% k = 37500*kram_rad;  %Prevedeno na radiany!
+% k = 37000*kram_rad;  %Prevedeno na radiany! 37500
+k = 35800*kram_rad;  %Prevedeno na radiany!
 T = 0.16;
 
 s = tf('s');
@@ -46,7 +46,8 @@ phip = kyvadlo_poc_podm(:,3);
 
 A1 = 60;
 A2 = 58;
-Td = 0.725;
+% Td = 0.725;
+Td = 0.77;
 
 mi = log(A1/A2); % log == ln
 zeta = mi/sqrt(4*pi^2 + mi^2);

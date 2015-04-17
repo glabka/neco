@@ -67,7 +67,7 @@ r = 0.2;
 %Zjistene parametry (i sdruzene)
 % sdr1 = kmot/b == 3700;
 %ku = 12680000;
-ku = 8;
+ku = 16;
 kram_rad = 2*pi/7300;
 kkyv_rad = -2*pi/2000;
 glabatom;

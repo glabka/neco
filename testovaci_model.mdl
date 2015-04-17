@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.46"
+    ComputedModelVersion    "1.69"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -38,7 +38,7 @@ Model {
 	DockPosition		"Left"
 	Width			[50]
 	Height			[50]
-	Filter			[8]
+	Filter			[9]
       }
       Object {
 	$PropName		"ExplorerBarInfo"
@@ -54,8 +54,8 @@ Model {
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
 	Extents			[1886.0, 922.0]
-	ZoomFactor		[2.0]
-	Offset			[-51.308830416662232, -64.280816743879768]
+	ZoomFactor		[3.0]
+	Offset			[75.598931885989131, 3.71918325612023]
       }
     }
   }
@@ -65,9 +65,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Matous"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Apr 16 23:19:41 2015"
-  RTWModifiedTimeStamp	  351127181
-  ModelVersionFormat	  "1.%<AutoIncrement:46>"
+  LastModifiedDate	  "Fri Apr 17 12:36:29 2015"
+  RTWModifiedTimeStamp	  351174988
+  ModelVersionFormat	  "1.%<AutoIncrement:69>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1005,7 +1005,7 @@ Model {
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "200"
+    ZoomFactor		    "300"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "96"
     Block {
@@ -1247,7 +1247,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Nelinearni"
-	Location		[478, 52, 1339, 867]
+	Location		[-8, -8, 1928, 1088]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1315,7 +1315,7 @@ Model {
 	  }
 	  System {
 	    Name		    "3. dif. rovnice"
-	    Location		    [16, 52, 1438, 954]
+	    Location		    [-8, -8, 1928, 1088]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1327,7 +1327,7 @@ Model {
 	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "117"
+	    ZoomFactor		    "150"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "u"
@@ -1866,7 +1866,7 @@ Model {
 	  }
 	  System {
 	    Name		    "4. dif. rovnice"
-	    Location		    [16, 52, 1438, 954]
+	    Location		    [-8, -8, 1928, 1088]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1878,7 +1878,7 @@ Model {
 	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "117"
+	    ZoomFactor		    "175"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "u"
@@ -2580,7 +2580,7 @@ Model {
       Position		      [175, 160, 205, 190]
       ZOrder		      -22
       Time		      "0"
-      After		      "0.1"
+      After		      "0.3"
       SampleTime	      "0"
     }
     Block {
@@ -2651,7 +2651,7 @@ Model {
       Position		      [535, 181, 565, 214]
       ZOrder		      -16
       Floating		      off
-      Location		      [104, 56, 1926, 1072]
+      Location		      [1, 48, 1921, 1079]
       Open		      off
       NumInputPorts	      "2"
       List {
@@ -2670,7 +2670,7 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      on
-      LegendLocations	      "0.91299     0.90993    0.065972    0.047416\n0.91299      0.4306    0.065972    0.047416"
+      LegendLocations	      "0.91014     0.78806    0.062605    0.046726\n0.91467      0.4339    0.062605    0.046726"
       YMin		      "-5~-5"
       YMax		      "5~5"
       DataFormat	      "StructureWithTime"

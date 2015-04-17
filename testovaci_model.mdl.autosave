@@ -2,12 +2,12 @@ Model {
   Name			  "testovaci_model"
   Version		  8.4
   MdlSubVersion		  0
-  SavedCharacterEncoding  "UTF-8"
+  SavedCharacterEncoding  "windows-1250"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.32"
+    ComputedModelVersion    "1.69"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -38,7 +38,7 @@ Model {
 	DockPosition		"Left"
 	Width			[50]
 	Height			[50]
-	Filter			[8]
+	Filter			[9]
       }
       Object {
 	$PropName		"ExplorerBarInfo"
@@ -54,8 +54,8 @@ Model {
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
 	Extents			[1886.0, 922.0]
-	ZoomFactor		[2.34]
-	Offset			[-0.33389218775346974, -54.476028467588577]
+	ZoomFactor		[3.0]
+	Offset			[75.598931885989131, 3.71918325612023]
       }
     }
   }
@@ -63,11 +63,11 @@ Model {
   Creator		  "matous"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "matous"
+  LastModifiedBy	  "Matous"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Apr 16 11:58:55 2015"
-  RTWModifiedTimeStamp	  351121104
-  ModelVersionFormat	  "1.%<AutoIncrement:32>"
+  LastModifiedDate	  "Fri Apr 17 12:36:29 2015"
+  RTWModifiedTimeStamp	  351175033
+  ModelVersionFormat	  "1.%<AutoIncrement:69>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1005,9 +1005,9 @@ Model {
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "234"
+    ZoomFactor		    "300"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "90"
+    SIDHighWatermark	    "96"
     Block {
       BlockType		      Constant
       Name		      "C"
@@ -1247,7 +1247,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Nelinearni"
-	Location		[478, 52, 1339, 867]
+	Location		[-8, -8, 1928, 1088]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1315,7 +1315,7 @@ Model {
 	  }
 	  System {
 	    Name		    "3. dif. rovnice"
-	    Location		    [16, 52, 1438, 954]
+	    Location		    [-8, -8, 1928, 1088]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1327,7 +1327,7 @@ Model {
 	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "117"
+	    ZoomFactor		    "150"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "u"
@@ -1866,7 +1866,7 @@ Model {
 	  }
 	  System {
 	    Name		    "4. dif. rovnice"
-	    Location		    [16, 52, 1438, 954]
+	    Location		    [-8, -8, 1928, 1088]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1878,7 +1878,7 @@ Model {
 	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "117"
+	    ZoomFactor		    "175"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "u"
@@ -2580,7 +2580,7 @@ Model {
       Position		      [175, 160, 205, 190]
       ZOrder		      -22
       Time		      "0"
-      After		      "0.05"
+      After		      "0.3"
       SampleTime	      "0"
     }
     Block {
@@ -2651,7 +2651,7 @@ Model {
       Position		      [535, 181, 565, 214]
       ZOrder		      -16
       Floating		      off
-      Location		      [1, 51, 1367, 767]
+      Location		      [1, 48, 1921, 1079]
       Open		      off
       NumInputPorts	      "2"
       List {
@@ -2670,9 +2670,11 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      on
-      LegendLocations	      "0.86841     0.77793     0.09407    0.079958\n0.87207     0.17039     0.09407    0.079958"
+      LegendLocations	      "0.91014     0.78806    0.062605    0.046726\n0.91467      0.4339    0.062605    0.046726"
       YMin		      "-5~-5"
       YMax		      "5~5"
+      SaveToWorkspace	      on
+      SaveName		      "vystup"
       DataFormat	      "StructureWithTime"
       SampleTime	      "0"
       ScrollMode	      off

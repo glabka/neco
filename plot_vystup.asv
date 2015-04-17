@@ -1,0 +1,9 @@
+
+figure;
+subplot(2, 1, 1);
+plot(vystup.time, vystup.signals(1).values(:,1), vystup.time, vystup.signals(1).values(:,2), vystup.time, vystup.signals(1).values(:,3), 'LineWidth', 2);
+legend('Namìøené hodnoty', 'Nelineární model', 'Linearizovaný model');
+xlabel('
+subplot(2, 1, 2);
+plot(vystup.time, vystup.signals(2).values(:,1), vystup.time, vystup.signals(2).values(:,2), vystup.time, vystup.signals(2).values(:,3), 'LineWidth', 2);
+legend('Namìøené hodnoty', 'Nelineární model', 'Linearizovaný model');
