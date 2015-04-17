@@ -40,6 +40,11 @@
 
 \clearpage
 
+
+
+%Tomáš%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \section{Rovnice}
 \renewcommand{\u}{u}
 \newcommand{\x}[2][]{ %první argument je nepovinný, tj. v těchto závorkách []. Pokud to je [t], tak se ta proměnná zobrazí jako funkce času
@@ -136,12 +141,12 @@ $$
 k_3 = m g l
 $$
 
+%Tomáš - konec %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
 
-
-
+%Matouš%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Linearizace modelu}
 Stabilní rovnovážná poloha kyvadla je v pracovním bodě $\mathbf{x_0} = [x_{1p}, x_{2p}, x_{3p}, x_{4p}] = [0, -\frac{\pi}{2}, 0, 0]$, ${u_0} = 0$.
@@ -193,10 +198,29 @@ Při výchylce kyvadla v rozmezí $\pm \SI{12}{\degree}$ je vliv kyvadla na polo
 Další nelinearitu jsme identifikovali u ramene, které se na jednu stranu posouvalo snáze, než na druhou.
 
 \section{Identifikace dynamiky motoru (ramene)}
-%Toto teď dopisuje Matouš.
-$$
-(J_m + m r^2) \phidd{m} - m l r \phidd{p}  \sinn{\phin{p}} - m l r \phid{p}^2 \coss{\phin{p}} + b \phid{m} = \M
-$$
+Uvažujeme první rovnici, popisující systém před úpravou do stavových rovnic, v okolí pracovního bodu $\mathbf{x_0}$. Po zanedbání křížových členů (vliv kyvadla na polohu ramene je pro identifikaci ostatních členů zanedbatelný) a linearizaci goniometrických funkcí získáváme následující předpis:
+\begin{align*}
+(J_m + mr^2)\ddot{\varphi}_m(t) + b\dot{\varphi}_m(t) = M(t) = k_u\cdot u_{norm}(t)
+\end{align*}
+Po zlaplaceování a standardních úpravách dostaneme přenos a srovnání s normálním tvarem:
+\begin{align*}
+H_{\varphi_m}(s) = \frac{k_u}{b}\cdot \frac{1}{s(\frac{J_m + mr^2}{b}s + 1)} = k\frac{1}{s(Ts + 1)}
+\end{align*}
+Jedná se tedy o systém druhého řádu s jedním pólem v nule. Takový systém se dá snadno identifikovat ze skokové odezvy. Srovnáním identifikovaných obecných konstant $T$ a $k$ s odpovídajícími konstantami v našem systému je pak můžeme vypočítat:
+\begin{align*}
+&b = \frac{k_u}{k} = k_u\frac{T}{\tau}	\\
+&k_1 = (J_m + mr^2) = T\cdot b
+\end{align*}
+, kde $T$ a $\tau$ odečteme z grafu (viz. obrázek níže).
+\begin{figure}[H]
+	\centering
+    \includegraphics[scale=.4]{Odhad_phim}
+    \caption{Odhad parametrů rovnice pro $\varphi_m$ z asymptoty}
+\end{figure}
+
+%Matouš-konec%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Tomáš%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Identifikace dynamiky kyvadla}
 Při identifikaci dynamiky kyvadla jsme vycházeli z následující diferenciální rovnice:
@@ -222,17 +246,47 @@ H_{\phin{p}}(s) = \frac{\frac{1}{J_p}}{s^2 + 2 \frac{\delta}{J_p} s + \frac{m g 
 \frac{k \wn^2}{s^2 + 2 \wn \ut s + \wn^2}
 $$
 Z rovnosti je vidět, že: ,$\frac{m g l}{J_p} = \wn^2$, $\frac{\delta}{J_p} = \wn \ut$. %$\frac{1}{J_p} = k \wn^2$
-Z nich si vyjádříme neznámé, které cheme získat, tedy $J_p = \frac{m g l}{\wn^2}$ a $\delta = J_p \wn \ut$. $\wn$ a $\ut$ zjistíme identifikací z odezvy na počáteční podmínku, $m = \SI{0,175}{\kg}$ (viz. zadání), $g$ je tíhové zrychlení a $l = \SI{0,17}{\metre}$ (změřená délku kyvadla).
+Z nich si vyjádříme neznámé, které cheme získat, tedy $J_p = \frac{m g l}{\wn^2}$ a $\delta = J_p \wn \ut$. $\wn$ a $\ut$ zjistíme identifikací z odezvy na počáteční podmínku, $m = \SI{0,175}{\kg}$ (viz. zadání), $g = \SI{9,81}{\meter \per \second}$ je tíhové zrychlení a $l = \SI{0,17}{\metre}$ (změřená délku kyvadla).
 
-%Obrázek
-%
-%
-%
-
-
-Platí, že $\mu \equiv \ln{(\frac{A_1}{A_2})} \doteq 0,0339$, $\ut = \frac{\mu}{\sqrt{4 \pi^2 + \mu^2}} \doteq 0,0054$, $\wn = \frac{2 \pi}{T_d \sqrt{1 - \ut^2}} \doteq 8,6666$.
+\begin{figure}[H]
+	\centering
+    \includegraphics[scale=.6]{Odhad_phip.pdf}
+    \caption{Odezva ramene na počáteční podmínku}
+\end{figure}
 
 
+Platí, že $\mu \equiv \ln{(\frac{A_1}{A_2})} \doteq 0,0339$, $\ut = \frac{\mu}{\sqrt{4 \pi^2 + \mu^2}} \doteq 0,0054$, $\wn = \frac{2 \pi}{T_d \sqrt{1 - \ut^2}} \doteq 8,6666$. Dosazením těchto hodnot můžeme tedy získat, že $J_p = \frac{m g l}{\wn^2} \doteq \SI{0.0039}{\kilo \gram \metre \per \second \squared}$, $\delta = J_p \wn \ut \doteq \SI{1.8169e-04}{\kg \m \squared \per \second}$.
+
+%Tomáš-konec%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Matouš%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Identifikace křížových členů}
+Zbývá nám ještě určit konstanty $k_2$ a $k_3$, které v rovnicích tvoří koeficienty křížových členů. Platí, že
+\begin{align*}
+&k_2 = mlr && k_3 = mgl
+\end{align*}
+Prvky $l$ a $r$ jsme určili naměřením na modelu kyvadla (jedná se o délku kyvadla a délku ramene), $g$ je tíhové zrychlení, které je pro naši polohu známé, a nakonec hodnotu $m$ jsme dostali zadanou. Výsledné hodnoty tedy jsou:
+\begin{align*}
+&m = \SI{0,175}{ \kilo \gram} &&g = \SI{9,81}{\meter \per \second}	\\
+&l = \SI{0,17}{\meter} &&r = \SI{0,2}{\meter}
+\end{align*}
+
+%Matouš - konec %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Provnání odezvy skutečného systému s odezvami linearizovaného a nelinearizovaného modelu}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{Odezvy01.pdf}
+\caption{•}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{Odezvy03.pdf}
+\caption{•}
+\end{figure}
 
 
 \end{document}
