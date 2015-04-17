@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.2.17)  16 APR 2015 23:58
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.2.17)  17 APR 2015 11:17
 entering extended mode
 **latex2.tex
 
@@ -882,14 +882,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 73--80
 
  []
 
-[3]
+<Odhad_phim.pdf, id=20, 845.1575pt x 597.23125pt>
+File: Odhad_phim.pdf Graphic file (type pdf)
+ <use Odhad_phim.pdf>
+Package pdftex.def Info: Odhad_phim.pdf used on input line 98.
+(pdftex.def)             Requested size: 338.057pt x 238.88826pt.
+ [3 <C:/Users/Matous/Dropbox/ČVUT/ARI/Práce/Laboratorní úloha/neco/Latex/Od
+had_phim.pdf>] [4]
 ("C:\Users\Matous\Dropbox\ČVUT\ARI\Práce\Laboratorní úloha\neco\Latex\latex
 2.aux") ) 
 Here is how much of TeX's memory you used:
- 11292 strings out of 493921
- 233366 string characters out of 3147279
+ 11302 strings out of 493921
+ 233500 string characters out of 3147279
  258948 words of memory out of 3000000
- 14498 multiletter control sequences out of 15000+200000
+ 14506 multiletter control sequences out of 15000+200000
  15702 words of font info for 59 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  34i,18n,41p,10373b,770s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -899,15 +905,17 @@ gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on latex2.pdf (3 pages, 134621 bytes).
+/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on latex2.pdf (4 pages, 206531 bytes).
 PDF statistics:
- 64 PDF objects out of 1000 (max. 8388607)
+ 128 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -27,12 +27,11 @@ asymptota = k*(t - T);
 
 figure;
 plot(t, phim, st_t, st, t, 0.2*asymptota, 'LineWidth', 2);
-legend('Namìøené hodnoty', 'Odhadované hodnoty', 'Asymptota');
+legend('Namerene hodnoty', 'Odhadovane hodnoty', 'Asymptota');
 xlim([0 3]);
 xlabel('Èas [s]');
 ylabel('$\mathbf{\varphi_m [rad]}$', 'Interpreter', 'Latex');
-title('Odhad parametrù systému 2. øádu s integraèním charakterem');
-grid on;
+title('Odhad parametrù systému 2. øádu s integraèní
 
 b = ku/k;
 return;
