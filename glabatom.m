@@ -35,7 +35,7 @@ title('Odhad parametrù systému 2. øádu s integraèním charakterem');
 grid on;
 
 b = ku/k;
-return;
+
 %%
 %2. rce ze zadani (se zanedbanymi cleny)
 %phip = (1/Jp)/(s^2 + 2*delta/Jp*s + m*g*l/Jp)
@@ -57,13 +57,18 @@ A = [0 1;...
 B = [0; omegan^2];
 C = [1 0];
 D = 0;
-x0 = [A1, 0];
+x0 = [A1*kkyv_rad/pi*180, 0];
 
 [init, init_t] = initial(ss(A, B, C, D), x0);
 init_t = init_t + 3.5;
 
 figure;
-plot(t, phip, init_t, init);
+plot(t, phip*kkyv_rad/pi*180, init_t, init, 'LineWidth', 2);
+legend('Namìøené hodnoty', 'Odhadované hodnoty');
+xlim([0 41]);
+xlabel('Èas [s]');
+ylabel('$\mathbf{\varphi_p [rad]}$', 'Interpreter', 'Latex');
+title('Odhad parametrù kmtavého systému 2. øádu');
 
 Jp = m*g*l/(omegan^2);
 delta = Jp*zeta*omegan;
