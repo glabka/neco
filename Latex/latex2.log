@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.2.17)  17 APR 2015 13:35
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.2.17)  17 APR 2015 14:34
 entering extended mode
 **latex2.tex
 
@@ -894,8 +894,13 @@ File: Odhad_phip.pdf Graphic file (type pdf)
 Package pdftex.def Info: Odhad_phip.pdf used on input line 114.
 (pdftex.def)             Requested size: 507.09842pt x 358.3415pt.
 
+Overfull \hbox (12.21848pt too wide) in paragraph at lines 133--136
+\OT1/cmr/m/n/12 I presto, ze jsme se snazili pa-ra-me-try systemu urcit co
+ nejpresneji, ne-od-povdaj nase mo-dely namerenym
+ []
+
 [4 <C:/Users/Matous/Dropbox/ČVUT/ARI/Práce/Laboratorní úloha/neco/Latex/Odh
-ad_phip.pdf>]
+ad_phip.pdf>] [5]
 ("C:\Users\Matous\Dropbox\ČVUT\ARI\Práce\Laboratorní úloha\neco\Latex\latex
 2.aux") ) 
 Here is how much of TeX's memory you used:
@@ -920,9 +925,9 @@ ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts
 /type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on latex2.pdf (4 pages, 301858 bytes).
+Output written on latex2.pdf (5 pages, 306013 bytes).
 PDF statistics:
- 175 PDF objects out of 1000 (max. 8388607)
+ 187 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
