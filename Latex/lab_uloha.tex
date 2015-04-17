@@ -208,8 +208,8 @@ H_{\varphi_m}(s) = \frac{k_u}{b}\cdot \frac{1}{s(\frac{J_m + mr^2}{b}s + 1)} = k
 \end{align*}
 Jedná se tedy o systém druhého řádu s jedním pólem v nule. Takový systém se dá snadno identifikovat ze skokové odezvy. Srovnáním identifikovaných obecných konstant $T$ a $k$ s odpovídajícími konstantami v našem systému je pak můžeme vypočítat:
 \begin{align*}
-&b = \frac{k_u}{k} = k_u\frac{T}{\tau}	\\
-&k_1 = (J_m + mr^2) = T\cdot b
+&b = \frac{k_u}{k} = k_u\frac{T}{\tau} = \SI{0,5024}{\kilo \gram \meter \squared \per \second}	\\
+&k_1 = (J_m + mr^2) = T\cdot b = 0,0831
 \end{align*}
 , kde $T$ a $\tau$ odečteme z grafu (viz. obrázek níže).
 \begin{figure}[H]
@@ -274,19 +274,54 @@ Prvky $l$ a $r$ jsme určili naměřením na modelu kyvadla (jedná se o délku 
 
 %Matouš - konec %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+%Tam, kde žijí lvi%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Modelování systému v Simulinku}
+Model obsahující naměřená data skutečného systému, linerání a nelinerání model můžete vidět na obrázku \ref{model:celk}. Výstup z MATLABovksého rozhraní skutečného systému není konzistentní s našimi stavy. Museli jsme proto tyto výstupy transformovat do radiánů a vhodné souřadnicové soustavy, tak jak byla definována v zadání simulační úlohy. To zajišťují konstanty \textit{enc{\_}to{\_}rad{\_}ram} a \textit{enc{\_}to{\_}rad{\_}kyv} a odečtení $\pi/2$ od výstupu polohy kyvadla. 
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{schema_celku.jpg}
+\caption{Zapojení linearizovaného modelu, nelineárního modelu a naměřených dat}
+\label{model:celk}
+\end{figure}
+
+Na obrázku \ref{model:lin} můžete vidět zapojení linearizovaného modelu.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{schema_linearizovany.jpg}
+\caption{Lineárizovaný model}
+\label{model:lin}
+\end{figure}
+
+Nelineární model jsme zapojili podle stavových rovnic.
+ 
+Pomocí srovnávání výstupu modelů a naměřených dat jsme určitli konstantu $\ku$ vyjadřující předpokládanou lineární závislost $\M$ na $\un$.
+ 
+Určené parametry modelu jsme ještě upravili tak, aby dobře seděly i pro obecnější případ bez zanedbaných a linerizovaných členů. Tyto upravené hodnoty jsou:
+\begin{align*}
+&b = \SI{0,5193}{\kilo \gram \meter \squared \per \second} \\
+&J_p = 0,0044	&&	\delta = 1,9297\cdot 10^{-4}
+\end{align*}
+
+
+
+
 \section{Provnání odezvy skutečného systému s odezvami linearizovaného a nelinearizovaného modelu}
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.6]{Odezvy01.pdf}
-\caption{•}
+\caption{Srovnání odezev na skok o velikosti 0.1}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.6]{Odezvy03.pdf}
-\caption{•}
+\caption{Srovnání odezev na skok o velikosti 0.3}
 \end{figure}
 
+%Tam, kde žijí lvi - konec %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
