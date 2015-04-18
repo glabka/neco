@@ -1,4 +1,5 @@
 %%
+load('potreba_pro_kompilaci.mat');
 %Definice konstant a promennych
 setup_vars
 syms k1 k2 k3 phim phip phimd phipd M kmot delta b Jm Jp m r l g u;
