@@ -99,7 +99,7 @@ vstup $\u$ pak:
 $$
 \u = \M[t] = \ku \un
 $$
-, kde $\un$ je číselný vtup rozhraní k modelu v MATLABu, který je normovaný. $k_u$ je konstanta vyjadřující předpokládanou lineární závislost $\M$ na $\un$.
+, kde $\un$ je číselný vstup rozhraní k modelu v MATLABu, který je normovaný. $k_u$ je konstanta vyjadřující předpokládanou lineární závislost $\M$ na $\un$.
 
 Stavové rovnice jsou tedy:
 
@@ -160,18 +160,18 @@ Matice linearizovaného systému v pracovním bodě $\mathbf{x_0}, u_0$:
 \begin{align*}
 &A = 
 \begin{pmatrix}
-\frac{\partial x_1}{\partial x_1} & \frac{\partial x_1}{\partial x_2} & \frac{\partial x_1}{\partial x_3} & \frac{\partial x_1}{\partial x_4}	\\
-\frac{\partial x_2}{\partial x_1} & \frac{\partial x_2}{\partial x_2} & \frac{\partial x_2}{\partial x_3} & \frac{\partial x_2}{\partial x_4}	\\
-\frac{\partial x_3}{\partial x_1} & \frac{\partial x_3}{\partial x_2} & \frac{\partial x_3}{\partial x_3} & \frac{\partial x_3}{\partial x_4}	\\
-\frac{\partial x_4}{\partial x_1} & \frac{\partial x_4}{\partial x_2} & \frac{\partial x_4}{\partial x_3} & \frac{\partial x_4}{\partial x_4}
+\frac{\partial \dot{x}_1}{\partial x_1} & \frac{\partial \dot{x}_1}{\partial x_2} & \frac{\partial \dot{x}_1}{\partial x_3} & \frac{\partial \dot{x}_1}{\partial x_4}	\\
+\frac{\partial \dot{x}_2}{\partial x_1} & \frac{\partial \dot{x}_2}{\partial x_2} & \frac{\partial \dot{x}_2}{\partial x_3} & \frac{\partial \dot{x}_2}{\partial x_4}	\\
+\frac{\partial \dot{x}_3}{\partial x_1} & \frac{\partial \dot{x}_3}{\partial x_2} & \frac{\partial \dot{x}_3}{\partial x_3} & \frac{\partial \dot{x}_3}{\partial x_4}	\\
+\frac{\partial \dot{x}_4}{\partial x_1} & \frac{\partial \dot{x}_4}{\partial x_2} & \frac{\partial \dot{x}_4}{\partial x_3} & \frac{\partial \dot{x}_4}{\partial x_4}
 \end{pmatrix}_{\biggr\rvert_\mathbf{x_0}} =
 \left(\begin{array}{cccc} 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 1\\ 0 & \frac{\mathrm{k_2}\, \mathrm{k_3}}{\mathrm{J_p}\, \mathrm{k_1} - {\mathrm{k_2}}^2} & -\frac{\mathrm{J_p}\, b}{\mathrm{J_p}\, \mathrm{k_1} - {\mathrm{k_2}}^2} & \frac{2\, \mathrm{\delta}\, \mathrm{k_2}}{\mathrm{J_p}\, \mathrm{k_1} - {\mathrm{k_2}}^2}\\ 0 & -\frac{\mathrm{k_3}}{\mathrm{J_p} - \frac{{\mathrm{k_2}}^2}{\mathrm{k_1}}} & \frac{b\, \mathrm{k_2}}{\mathrm{k_1}\, \left(\mathrm{J_p} - \frac{{\mathrm{k_2}}^2}{\mathrm{k_1}}\right)} & -\frac{2\, \mathrm{\delta}}{\mathrm{J_p} - \frac{{\mathrm{k_2}}^2}{\mathrm{k_1}}} \end{array}\right)	\\ \\
 &B =
 \begin{pmatrix}
-\frac{\partial x_1}{\partial u}	\\
-\frac{\partial x_2}{\partial u}	\\
-\frac{\partial x_3}{\partial u}	\\
-\frac{\partial x_4}{\partial u}
+\frac{\partial \dot{x}_1}{\partial u}	\\
+\frac{\partial \dot{x}_2}{\partial u}	\\
+\frac{\partial \dot{x}_3}{\partial u}	\\
+\frac{\partial \dot{x}_4}{\partial u}
 \end{pmatrix}_{\biggr\rvert_{u_0}} =
 \left(\begin{array}{c} 0\\ 0\\ \frac{\mathrm{J_p}}{\mathrm{J_p}\, \mathrm{k_1} - {\mathrm{k_2}}^2}\\ -\frac{\mathrm{k_2}}{\mathrm{k_1}\, \left(\mathrm{J_p} - \frac{{\mathrm{k_2}}^2}{\mathrm{k_1}}\right)} \end{array}\right)	\\ \\
 &C =
@@ -208,7 +208,17 @@ Po zlaplaceování a standardních úpravách dostaneme přenos a srovnání s n
 \begin{align*}
 H_{\varphi_m}(s) = \frac{k_u}{b}\cdot \frac{1}{s(\frac{J_m + mr^2}{b}s + 1)} = k\frac{1}{s(Ts + 1)}
 \end{align*}
-Jedná se tedy o systém druhého řádu s jedním pólem v nule. Takový systém se dá snadno identifikovat ze skokové odezvy. Srovnáním identifikovaných obecných konstant $T$ a $k$ s odpovídajícími konstantami v našem systému je pak můžeme vypočítat:
+%Návrh úpravy:%%%%%%%%%%%%%%%%%%%%
+%Přenos odpovídající této rovnici položíme rovno normálnímu tvaru:
+%\begin{align*}
+%H_{\varphi_m}(s) = \frac{k_u}{b}\cdot \frac{1}{s(\frac{J_m + mr^2}{b}s + 1)} \overset{!}{=} k\frac{1}{s(Ts + 1)}
+%\end{align*}
+%Návrh úpravy-konec%%%%%%%%%%%%%%%%
+
+
+
+
+Jedná se tedy o systém druhého řádu s jedním pólem v nule. Takový systém se dá snadno identifikovat ze skokové odezvy. Srovnáním identifikovaných obecných konstant $T$ a $k$ s odpovídajícími konstantami v našem systému je pak můžeme vypočítat jako:
 \begin{align*}
 &b = \frac{k_u}{k} = k_u\frac{T}{\tau} = \SI{0,5024}{\kilo \gram \meter \squared \per \second}	\\
 &k_1 = (J_m + mr^2) = T\cdot b = 0,0831
@@ -225,11 +235,11 @@ Jedná se tedy o systém druhého řádu s jedním pólem v nule. Takový systé
 %Tomáš%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Identifikace dynamiky kyvadla}
-Při identifikaci dynamiky kyvadla jsme vycházeli z následující diferenciální rovnice:
+Při identifikaci dynamiky kyvadla vycházejme z následující diferenciální rovnice:
 $$
 J_p \phidd{p} + m g l \coss{\phin{p}} - m l r \phidd{m} \sinn{\phin{p}} + 2 \delta \phid{p} = 0
 $$
-Identifikaci jsme prováděli v pásmu necitlivosti vlivu kyvadla na rameno, tj. křížový člen  $m l r \phidd{m} \sinn{\phin{p}}$ se neprojevoval, z rovnice jej tedy vypustíme. Dále nahradíme $\coss{\phin{p}}$ jeho lineární aproximací v pracovním bodu, což v našem případě je $\phin{p}$. Získaná rovnice je tedy následující:
+Identifikaci provedeme v pásmu necitlivosti vlivu kyvadla na rameno, tj. vliv křížového členu  $m l r \phidd{m} \sinn{\phin{p}}$ se neprojeví, v rovnici jej tedy vynecháme. Dále nahradíme $\coss{\phin{p}}$ jeho lineární aproximací v pracovním bodě, což v našem případě je $\phin{p}$. Získaná rovnice je tedy následující:
 $$
 J_p \phidd{p} + 2 \delta \phid{p} + m g l \phin{p} = 0
 $$
@@ -241,14 +251,14 @@ H_{\phin{p}}(s) = \frac{1}{J_p s^2 + 2 \delta s + m g l}
 $$
 \newcommand{\wn}{\omega_n}
 \newcommand{\ut}{\zeta} % útlum
-Tento přenos identifikujeme pomocí přenosu druhého řádu ve tvaru s tlumením $\ut$ a přirozenou frekvencí $\wn$. Porovnáním s přenosovou funkcí $H_{\phin{p}}(s)$ dostáváme:
+Tento přenos identifikujeme pomocí přenosu druhého řádu ve tvaru s tlumením $\ut$ a přirozenou frekvencí $\wn$. Porovnáním těchto přenosů získáme:
 $$
 H_{\phin{p}}(s) = \frac{\frac{1}{J_p}}{s^2 + 2 \frac{\delta}{J_p} s + \frac{m g l}{J_p}}
 \overset{!}{=} 
 \frac{k \wn^2}{s^2 + 2 \wn \ut s + \wn^2}
 $$
 Z rovnosti je vidět, že: ,$\frac{m g l}{J_p} = \wn^2$, $\frac{\delta}{J_p} = \wn \ut$. %$\frac{1}{J_p} = k \wn^2$
-Z nich si vyjádříme neznámé, které cheme získat, tedy $J_p = \frac{m g l}{\wn^2}$ a $\delta = J_p \wn \ut$. $\wn$ a $\ut$ zjistíme identifikací z odezvy na počáteční podmínku, $m = \SI{0,175}{\kg}$ (viz. zadání), $g = \SI{9,81}{\meter \per \second}$ je tíhové zrychlení a $l = \SI{0,17}{\metre}$ (změřená délku kyvadla).
+Vyjádříme neznámé, které cheme určit, tedy $J_p = \frac{m g l}{\wn^2}$ a $\delta = J_p \wn \ut$. Neznámé $\wn$ a $\ut$ zjistíme identifikací z odezvy na počáteční podmínku, $m = \SI{0,175}{\kg}$ (viz. zadání), $g = \SI{9,81}{\meter \per \second}$ je tíhové zrychlení a $l = \SI{0,17}{\metre}$ (změřená délku kyvadla).
 
 \begin{figure}[H]
 	\centering
@@ -268,11 +278,23 @@ Zbývá nám ještě určit konstanty $k_2$ a $k_3$, které v rovnicích tvoří
 \begin{align*}
 &k_2 = mlr && k_3 = mgl
 \end{align*}
-Prvky $l$ a $r$ jsme určili naměřením na modelu kyvadla (jedná se o délku kyvadla a délku ramene), $g$ je tíhové zrychlení, které je pro naši polohu známé, a nakonec hodnotu $m$ jsme dostali zadanou. Výsledné hodnoty tedy jsou:
+Prvky $l$ a $r$ jsme určili naměřením na modelu kyvadla (jedná se o délku kyvadla a délku ramene), $g$ je tíhové zrychlení, které je pro naši polohu známé, hodnotu $m$ známe ze zadání úlohy. Výsledné hodnoty tedy jsou:
 \begin{align*}
 &m = \SI{0,175}{ \kilo \gram} &&g = \SI{9,81}{\meter \per \second}	\\
 &l = \SI{0,17}{\meter} &&r = \SI{0,2}{\meter}
 \end{align*}
+%Návrh úpravy (jedna možnost)%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Zbývá nám ještě určit konstanty $k_2$ a $k_3$, které se vyskytují v koeficientech křížových členů. Platí, že
+%\begin{align*}
+%&k_2 = mlr && k_3 = mgl
+%\end{align*}
+%Prvky $l$ a $r$ jsme určili naměřením na modelu kyvadla (jedná se o délku kyvadla a délku ramene), $g$ je tíhové zrychlení, které je pro naši polohu známé, hodnotu $m$ známe ze zadání úlohy. Jejich hodnoty jsou: 
+%\begin{align*}
+%&m = \SI{0,175}{ \kilo \gram} &&g = \SI{9,81}{\meter \per \second}	\\
+%&l = \SI{0,17}{\meter} &&r = \SI{0,2}{\meter}
+%\end{align*}
+%Pomocí této znalosti určíme zmíněné koeficienty křížových členů.
+%Návrh úpravy-konec%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %Matouš - konec %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -280,7 +302,7 @@ Prvky $l$ a $r$ jsme určili naměřením na modelu kyvadla (jedná se o délku 
 %Tam, kde žijí lvi%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Modelování systému v Simulinku}
-Model obsahující naměřená data skutečného systému, linerání a nelinerání model můžete vidět na obrázku \ref{model:celk}. Výstup z MATLABovksého rozhraní skutečného systému není konzistentní s našimi stavy. Museli jsme proto tyto výstupy transformovat do radiánů a vhodné souřadnicové soustavy, tak jak byla definována v zadání simulační úlohy. To zajišťují konstanty \textit{enc{\_}to{\_}rad{\_}ram} a \textit{enc{\_}to{\_}rad{\_}kyv} a odečtení $\pi/2$ od výstupu polohy kyvadla. 
+Na obrázku \ref{model:celk} můžeme vidět model obsahující naměřená data skutečného systému, linerání a nelinerání model. Výstup z MATLABovksého rozhraní skutečného systému není konzistentní s našimi stavy. Museli jsme proto tyto výstupy transformovat do radiánů a vhodné souřadnicové soustavy, tak jak byla definována v zadání simulační úlohy. To zajišťují konstanty \textit{enc{\_}to{\_}rad{\_}ram} a \textit{enc{\_}to{\_}rad{\_}kyv} a odečtení $\pi/2$ od výstupu polohy kyvadla. 
 
 \begin{figure}[H]
 \centering
@@ -298,31 +320,31 @@ Na obrázku \ref{model:lin} můžete vidět zapojení linearizovaného modelu.
 \label{model:lin}
 \end{figure}
 
-Nelineární model jsme zapojili podle stavových rovnic, viz obr. \ref{model:nelin}
+Nelineární model jsme zapojili podle stavových rovnic, viz obr. \ref{model:nelin:sub} a \ref{model:nelin:celk}.
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\textwidth]{schema_nelinearni_celek.jpg}
 \caption{Nelneární model}
-\label{model:nelin}
+\label{model:nelin:celk}
 \end{figure}
 
-, kde jednotlivé subsystémy odpovídající třetí a čtvrté stavové rovnici jsou zapojeny následovně.
-
-\begin{figure}
+\begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.5\textwidth}
                 \includegraphics[width=\textwidth]{schema_nelinearni_3difrov.jpg}
-                \caption{Zapojení třetí stavové rovnice}
+                \caption{Zapojení třetí stavové rovnice ($3.$ $dif.$ $rovnice)$}
                 \label{model:nelin:3diff}
         \end{subfigure}%
         ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
           %(or a blank line to force the subfigure onto a new line)
         \begin{subfigure}[b]{0.5\textwidth}
                 \includegraphics[width=\textwidth]{schema_nelinearni_4difrov.jpg}
-                \caption{Zapojení čtvrté stavové rovnice}
+                \caption{Zapojení čtvrté stavové rovnice ($4.$ $dif.$ $rovnice$)}
                 \label{model:nelin:4diff}
         \end{subfigure}
         \caption{Zapojení subsystémů}
+        \label{model:nelin:sub}
 \end{figure}
   
  
@@ -335,8 +357,8 @@ Určené parametry modelu jsme ještě upravili tak, aby dobře seděly i pro ob
 \end{align*}
 
 
-\section{Provnání odezvy skutečného systému s odezvami linearizovaného a nelinearizovaného modelu}
-Následující grafy ukazují rozdíly mezi naměřenými hodnotami a odezvami modelů. Z grafů je patrné, že pro úhel natočení ramene $\phin{m}$ modely odpovídají poměrně dobře pro malý i větší vstup, zatímco pro úhel natočení kyvadla $\phin{p}$ se pro větší vtup začínají s naměřenými hodnotami rozcházet. Za povšimnutí stojí také skutečnost, že se pro větší vstup poloha kyvadla neustaluje v klidové poloze, jak to v případě obou modelů. Při větším vstupu také jde vidět, jak se postupně začíná rozcházet linearizovaný a nelinární model.
+\section{Porovnání odezvy skutečného systému s odezvami linearizovaného a nelineárního modelu}
+Následující grafy ukazují rozdíly mezi naměřenými hodnotami a odezvami modelů. Z grafů je patrné, že pro úhel natočení ramene $\phin{m}$ modely odpovídají poměrně dobře pro malý i větší vstup, zatímco pro úhel natočení kyvadla $\phin{p}$ se pro větší vtup začínají s naměřenými hodnotami rozcházet. Za povšimnutí stojí také skutečnost, že se pro větší vstup poloha kyvadla neustaluje v klidové poloze, jak je to v případě obou modelů. U větším vstupu také patrné, jak se postupně začíná rozcházet linearizovaný a nelinární model.
 
 \begin{figure}[H]
 \centering
@@ -353,8 +375,8 @@ Následující grafy ukazují rozdíly mezi naměřenými hodnotami a odezvami m
 %Tam, kde žijí lvi - konec %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Závěr}
-I přesto, že jsme se snažili parametry systému určit co nejpřesněji, neodpovídají naše modely naměřeným hodnotám reálného systému pro větší vstupy příliš dobře, jak je vidět z porovnávání odezev na skok v sekci 8 (hlavně v poloze kyvadla $\varphi_p$). To může být způsobeno dalšími skrytými nelinearitami systému, použitím rovnic pro kyvadlo na vozíku, které nemusí dostatečně přesně popisovat rotační kyvadlo, zanedbáním případné dynamiky vstupu a zanedbáním vlivu tření vzduchu, které nejspíš způsobuje ustálení polohy kyvadla v jiné poloze, než je klidová, když je rychlost ramene nenulová.
+I přesto, že jsme se snažili parametry systému určit co nejpřesněji, neodpovídají naše modely naměřeným hodnotám reálného systému pro větší vstupy příliš dobře, jak je vidět z porovnávání odezev na skok v sekci 8 (hlavně pro polohu kyvadla $\varphi_p$). To může být způsobeno dalšími skrytými nelinearitami systému, použitím rovnic pro kyvadlo na vozíku, které nemusí dostatečně přesně popisovat rotační kyvadlo, zanedbáním případné dynamiky vstupu a zanedbáním vlivu tření vzduchu, které nejspíš způsobuje ustálení polohy kyvadla v jiné poloze, než je klidová, při nenulové rychlosti ramene.
 \newline
-Pro malé vstupy, a ze začátku i pro větší, se ale odezvy systémů celkem shodují, doufáme tedy, že bude tyto modely možné použít pro řízení v dalších částech laboratorní úlohy.
+Pro malé vstupy, a z počátku i pro větší, se ale odezvy systémů celkem shodují, tudíž bude asi možné tyto modely možné použít pro řízení v dalších částech laboratorní úlohy.
 
 \end{document}
