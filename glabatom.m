@@ -10,7 +10,8 @@ close all;
 %1. rce ze zadani (se zanedbanymi cleny)
 %phim = (ku/b)/(s*((Jm+m*r^2)/b*s + 1))
 %phim = (k)/(s*(T*s + 1))
-load('odezva_skok_02.mat');
+cesta = strcat(pwd, '/Mereni/odezva_skok_02.mat');
+load(cesta);
 t = odezva_skok_02(:,1);
 phim = odezva_skok_02(:,2)*kram_rad;
 %phip = odezva_skok_02(:,3);
@@ -27,11 +28,11 @@ asymptota = k*(t - T);
 
 figure;
 plot(t, phim, st_t, st, t, 0.2*asymptota, 'LineWidth', 2);
-legend('Namìøené hodnoty', 'Odhadované hodnoty', 'Asymptota');
+legend('Namï¿½ï¿½enï¿½ hodnoty', 'Odhadovanï¿½ hodnoty', 'Asymptota');
 xlim([0 3]);
-xlabel('Èas [s]');
+xlabel('ï¿½as [s]');
 ylabel('$\mathbf{\varphi_m [rad]}$', 'Interpreter', 'Latex');
-title('Odhad parametrù systému 2. øádu s integraèním charakterem');
+title('Odhad parametrï¿½ systï¿½mu 2. ï¿½ï¿½du s integraï¿½nï¿½m charakterem');
 grid on;
 
 b = ku/k;
@@ -65,11 +66,11 @@ init_t = init_t + 3.5;
 
 figure;
 plot(t, phip*kkyv_rad/pi*180, init_t, init, 'LineWidth', 2);
-legend('Namìøené hodnoty', 'Odhadované hodnoty');
+legend('Namï¿½ï¿½enï¿½ hodnoty', 'Odhadovanï¿½ hodnoty');
 xlim([0 41]);
-xlabel('Èas [s]');
+xlabel('ï¿½as [s]');
 ylabel('$\mathbf{\varphi_p [rad]}$', 'Interpreter', 'Latex');
-title('Odhad parametrù kmtavého systému 2. øádu');
+title('Odhad parametrï¿½ kmtavï¿½ho systï¿½mu 2. ï¿½ï¿½du');
 
 Jp = m*g*l/(omegan^2);
 delta = Jp*zeta*omegan;

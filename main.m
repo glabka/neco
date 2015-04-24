@@ -1,7 +1,7 @@
 %%
 load('potreba_pro_kompilaci.mat');
 %Definice konstant a promennych
-setup_vars
+% setup_vars
 syms k1 k2 k3 phim phip phimd phipd M kmot delta b Jm Jp m r l g u;
 
 
@@ -88,7 +88,8 @@ Dlin = subs(Dlin, us, ups);
 
 Alin = eval(Alin);
 Blin = eval(Blin);
-Clin = eval(Clin);
-Dlin = eval(Dlin);
+%Tohle je potreba ve starym MATLABu zakomentit
+% Clin = eval(Clin);
+% Dlin = eval(Dlin);
 
 x0 = [x1p; x2p; x3p; x4p];
