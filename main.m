@@ -92,4 +92,7 @@ Blin = eval(Blin);
 % Clin = eval(Clin);
 % Dlin = eval(Dlin);
 
+s = tf('s');
+Hlin = Clin/(s*eye(length(Alin)) - Alin)*Blin + Dlin;
+
 x0 = [x1p; x2p; x3p; x4p];
