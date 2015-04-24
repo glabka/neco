@@ -3,7 +3,7 @@
 ##Saturace a pásma necitlivosti
 ###Na vstupu u_mot
 * pásmo necitlivosti: vtup: 0.007 (výstup: 0)
-* saturace: vtup: +-1, výstup: +-3.6
+* saturace: vtup: +-1, výstup: +-3.6*10^4 (tiků za sekundu)
 
 
 ## 1. rce ( ne-stavová)
@@ -45,3 +45,7 @@
 ###Poznámky
 * při transformaci výstupu linearizovaného modelu není potřeba nic přičítat - pracovní bod se nám odečte s tím posunutím pi/2 v transforamci na enkodérové tiky.
 * v sešitu mám (datované ke 31. 3.) zápisky se jménem **Nejasnoti a chyby**, kde mám zapsány nejasnosti a chyby v zadání či v tom přístroji (kyvadle).
+
+###Poznámky k poznámkám, které nám dal cvičící k zpracování:
+* 5. úloha má špatný přenos, správně by měl mít nulu (v případě, že bereme počáteční podmínku rychlosti za nulovou), pak by to mělo vyjít:
+	* phip = (2 delta + Jp*s) / (Jp*s^2+2*delta*s+m*g*l)
