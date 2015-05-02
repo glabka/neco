@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.77"
+    ComputedModelVersion    "1.99"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -51,11 +51,11 @@ Model {
 	$ObjectID		5
 	$ClassName		"Simulink.EditorInfo"
 	IsActive		[1]
-	ViewObjType		"SimulinkSubsys"
-	LoadSaveID		"31"
+	ViewObjType		"SimulinkTopLevel"
+	LoadSaveID		"0"
 	Extents			[1886.0, 922.0]
-	ZoomFactor		[1.75]
-	Offset			[141.97795196969071, 179.78486349993543]
+	ZoomFactor		[2.0]
+	Offset			[1.7508645663448279, 39.5361896350085]
       }
     }
   }
@@ -65,9 +65,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Matous"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Apr 17 13:55:57 2015"
-  RTWModifiedTimeStamp	  351179752
-  ModelVersionFormat	  "1.%<AutoIncrement:77>"
+  LastModifiedDate	  "Sat May 02 23:51:26 2015"
+  RTWModifiedTimeStamp	  352511456
+  ModelVersionFormat	  "1.%<AutoIncrement:99>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -183,7 +183,7 @@ Model {
 	  $ObjectID		  8
 	  Version		  "1.14.3"
 	  StartTime		  "0.0"
-	  StopTime		  "4.99"
+	  StopTime		  "30"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -801,15 +801,6 @@ Model {
       BusSelectionMode	      off
     }
     Block {
-      BlockType		      FromWorkspace
-      VariableName	      "simulink_input"
-      OutDataTypeStr	      "Inherit: auto"
-      SampleTime	      "-1"
-      Interpolate	      on
-      ZeroCross		      off
-      OutputAfterFinalValue   "Extrapolation"
-    }
-    Block {
       BlockType		      Gain
       Gain		      "1"
       Multiplication	      "Element-wise(K.*u)"
@@ -898,6 +889,21 @@ Model {
       SampleTime	      "-1"
     }
     Block {
+      BlockType		      Saturate
+      UpperLimitSource	      "Dialog"
+      UpperLimit	      "0.5"
+      LowerLimitSource	      "Dialog"
+      LowerLimit	      "-0.5"
+      LinearizeAsGain	      on
+      ZeroCross		      on
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as input"
+      LockScale		      off
+      RndMeth		      "Floor"
+    }
+    Block {
       BlockType		      Scope
       ModelBased	      off
       TickLabels	      "OneTimeTick"
@@ -983,6 +989,14 @@ Model {
       SampleTime	      "-1"
     }
     Block {
+      BlockType		      TransferFcn
+      Numerator		      "[1]"
+      Denominator	      "[1 2 1]"
+      AbsoluteTolerance	      "auto"
+      ContinuousStateAttributes	"''"
+      Realization	      "auto"
+    }
+    Block {
       BlockType		      Trigonometry
       Operator		      "sin"
       ApproximationMethod     "None"
@@ -994,7 +1008,7 @@ Model {
   System {
     Name		    "testovaci_model"
     Location		    [-8, -8, 1928, 1088]
-    Open		    off
+    Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1005,28 +1019,30 @@ Model {
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "300"
+    ZoomFactor		    "200"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "98"
+    SIDHighWatermark	    "106"
     Block {
-      BlockType		      Constant
-      Name		      "C"
-      SID		      "86"
-      Position		      [418, 125, 442, 140]
-      ZOrder		      -5
-      BlockRotation	      270
-      Value		      "pi/2"
+      BlockType		      Gain
+      Name		      "Gain"
+      SID		      "103"
+      Position		      [315, 160, 345, 190]
+      ZOrder		      16
+      Gain		      "ku"
+      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
     }
     Block {
-      BlockType		      Demux
-      Name		      "Demux"
-      SID		      "79"
-      Ports		      [1, 2]
-      Position		      [315, 13, 320, 117]
-      ZOrder		      -6
-      ShowName		      off
-      Outputs		      "2"
-      DisplayOption	      "bar"
+      BlockType		      Gain
+      Name		      "Gain1"
+      SID		      "104"
+      Position		      [315, 250, 345, 280]
+      ZOrder		      17
+      Gain		      "ku"
+      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
     }
     Block {
       BlockType		      SubSystem
@@ -1246,33 +1262,23 @@ Model {
       BlockType		      Mux
       Name		      "Mux"
       SID		      "75"
-      Ports		      [3, 1]
+      Ports		      [2, 1]
       Position		      [495, 141, 500, 179]
       ZOrder		      -12
       ShowName		      off
-      Inputs		      "3"
+      Inputs		      "2"
       DisplayOption	      "bar"
     }
     Block {
       BlockType		      Mux
       Name		      "Mux1"
       SID		      "76"
-      Ports		      [3, 1]
+      Ports		      [2, 1]
       Position		      [495, 221, 500, 259]
       ZOrder		      -12
       ShowName		      off
-      Inputs		      "3"
+      Inputs		      "2"
       DisplayOption	      "bar"
-    }
-    Block {
-      BlockType		      FromWorkspace
-      Name		      "Namerene"
-      SID		      "73"
-      Position		      [220, 53, 285, 77]
-      ZOrder		      -10
-      VariableName	      "nam_hod2"
-      SampleTime	      "0"
-      ZeroCross		      on
     }
     Block {
       BlockType		      SubSystem
@@ -1296,12 +1302,12 @@ Model {
 	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"250"
+	ZoomFactor		"200"
 	Block {
 	  BlockType		  Inport
 	  Name			  "u"
 	  SID			  "2"
-	  Position		  [10, 33, 40, 47]
+	  Position		  [20, 33, 50, 47]
 	  ZOrder		  6
 	  IconDisplay		  "Port number"
 	}
@@ -1310,7 +1316,7 @@ Model {
 	  Name			  "1. dif. rovnice"
 	  SID			  "3"
 	  Ports			  [1, 1]
-	  Position		  [300, 45, 330, 75]
+	  Position		  [410, 45, 440, 75]
 	  ZOrder		  1
 	  InitialCondition	  "x1p"
 	  Port {
@@ -1325,7 +1331,7 @@ Model {
 	  Name			  "2. dif. rovnice"
 	  SID			  "4"
 	  Ports			  [1, 1]
-	  Position		  [300, 290, 330, 320]
+	  Position		  [410, 290, 440, 320]
 	  ZOrder		  2
 	  InitialCondition	  "x2p"
 	  Port {
@@ -1340,7 +1346,7 @@ Model {
 	  Name			  "3. dif. rovnice"
 	  SID			  "5"
 	  Ports			  [3, 1]
-	  Position		  [185, 28, 225, 92]
+	  Position		  [295, 28, 335, 92]
 	  ZOrder		  29
 	  RequestExecContextInheritance	off
 	  Port {
@@ -1891,7 +1897,7 @@ Model {
 	  Name			  "4. dif. rovnice"
 	  SID			  "31"
 	  Ports			  [3, 1]
-	  Position		  [185, 273, 225, 337]
+	  Position		  [295, 273, 335, 337]
 	  ZOrder		  60
 	  RequestExecContextInheritance	off
 	  Port {
@@ -1903,8 +1909,8 @@ Model {
 	  }
 	  System {
 	    Name		    "4. dif. rovnice"
-	    Location		    [-8, -8, 1928, 1088]
-	    Open		    on
+	    Location		    [-8, 0, 1928, 1096]
+	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -2494,10 +2500,21 @@ Model {
 	  }
 	}
 	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation"
+	  SID			  "106"
+	  Ports			  [1, 1]
+	  Position		  [110, 25, 140, 55]
+	  ZOrder		  61
+	  InputPortMap		  "u0"
+	  UpperLimit		  "1"
+	  LowerLimit		  "-1"
+	}
+	Block {
 	  BlockType		  Outport
 	  Name			  "phim"
 	  SID			  "59"
-	  Position		  [405, 53, 435, 67]
+	  Position		  [515, 53, 545, 67]
 	  ZOrder		  5
 	  IconDisplay		  "Port number"
 	}
@@ -2505,7 +2522,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "phip"
 	  SID			  "60"
-	  Position		  [405, 298, 435, 312]
+	  Position		  [515, 298, 545, 312]
 	  ZOrder		  7
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -2594,7 +2611,14 @@ Model {
 	  ZOrder		  13
 	  SrcBlock		  "u"
 	  SrcPort		  1
-	  Points		  [28, 0]
+	  DstBlock		  "Saturation"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  21
+	  SrcBlock		  "Saturation"
+	  SrcPort		  1
+	  Points		  [38, 0]
 	  Branch {
 	    ZOrder		    19
 	    Labels		    [1, 0]
@@ -2614,71 +2638,57 @@ Model {
       BlockType		      Step
       Name		      "Step"
       SID		      "78"
-      Position		      [175, 160, 205, 190]
+      Position		      [70, 160, 100, 190]
       ZOrder		      -22
       Time		      "0"
-      After		      "0.1"
+      After		      "20"
       SampleTime	      "0"
     }
     Block {
       BlockType		      Sum
       Name		      "Sum"
-      SID		      "85"
+      SID		      "100"
       Ports		      [2, 1]
-      Position		      [420, 80, 440, 100]
-      ZOrder		      -18
+      Position		      [195, 165, 215, 185]
+      ZOrder		      13
+      ShowName		      off
+      IconShape		      "round"
+      Inputs		      "-+|"
+      InputSameDT	      off
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "Sum1"
+      SID		      "101"
+      Ports		      [2, 1]
+      Position		      [195, 255, 215, 275]
+      ZOrder		      15
       ShowName		      off
       IconShape		      "round"
       Inputs		      "|+-"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
       SaturateOnIntegerOverflow	off
-      Port {
-	PortNumber		1
-	Name			"nam_phip"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
-      }
     }
     Block {
-      BlockType		      Gain
-      Name		      "enc_to_rad_kyv"
-      SID		      "83"
-      Position		      [360, 75, 390, 105]
-      ZOrder		      -8
-      Gain		      "kkyv_rad"
-      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
+      BlockType		      TransferFcn
+      Name		      "Transfer Fcn"
+      SID		      "99"
+      Position		      [235, 157, 295, 193]
+      ZOrder		      12
+      Numerator		      "C.num{1}"
+      Denominator	      "C.den{1}"
     }
     Block {
-      BlockType		      Gain
-      Name		      "enc_to_rad_ram"
-      SID		      "82"
-      Position		      [360, 25, 390, 55]
-      ZOrder		      -8
-      NamePlacement	      "alternate"
-      Gain		      "kram_rad"
-      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
-      Port {
-	PortNumber		1
-	Name			"nam_phim"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
-      }
-    }
-    Block {
-      BlockType		      Gain
-      Name		      "input_to_M"
-      SID		      "84"
-      Position		      [240, 160, 265, 190]
-      ZOrder		      -8
-      Gain		      "ku"
-      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
+      BlockType		      TransferFcn
+      Name		      "Transfer Fcn1"
+      SID		      "102"
+      Position		      [235, 247, 295, 283]
+      ZOrder		      14
+      Numerator		      "C.num{1}"
+      Denominator	      "C.den{1}"
     }
     Block {
       BlockType		      Scope
@@ -2707,21 +2717,54 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      on
-      LegendLocations	      "0.91014     0.78806    0.062605    0.046726\n0.91467      0.4339    0.062605    0.046726"
-      YMin		      "-5~-5"
-      YMax		      "5~5"
+      LegendLocations	      "0.91847     0.54704    0.062605    0.032659\n0.91743      0.4481    0.062605    0.032659"
+      TimeRange		      "12.49629428456308"
+      YMin		      "0.999999999999679~-1.570796326795069"
+      YMax		      "0.9999999999998991~-1.570796326794724"
       SaveToWorkspace	      on
       SaveName		      "vystup"
       DataFormat	      "StructureWithTime"
+      LimitDataPoints	      off
       SampleTime	      "0"
       ScrollMode	      off
     }
-    Line {
-      ZOrder		      1
-      SrcBlock		      "Step"
-      SrcPort		      1
-      DstBlock		      "input_to_M"
-      DstPort		      1
+    Block {
+      BlockType		      Scope
+      Name		      "u"
+      SID		      "105"
+      Ports		      [2]
+      Position		      [380, 71, 410, 104]
+      ZOrder		      18
+      Floating		      off
+      Location		      [10, 69, 1930, 1100]
+      Open		      off
+      NumInputPorts	      "2"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+	axes2			"%<SignalLabel>"
+      }
+      List {
+	ListType		ScopeGraphics
+	FigureColor		"[0.5 0.5 0.5]"
+	AxesColor		"[0 0 0]"
+	AxesTickColor		"[1 1 1]"
+	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	LineStyles		"-|-|-|-|-|-"
+	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
+	MarkerStyles		"none|none|none|none|none|none"
+      }
+      ShowLegends	      on
+      LegendLocations	      "0.91847     0.54704    0.041268    0.018593\n0.91743      0.4481    0.044455    0.018593"
+      TimeRange		      "12.49629428456308"
+      YMin		      "0.999999999999679~-1.570796326795069"
+      YMax		      "0.9999999999998991~-1.570796326794724"
+      SaveToWorkspace	      on
+      SaveName		      "vystup1"
+      DataFormat	      "StructureWithTime"
+      LimitDataPoints	      off
+      SampleTime	      "0"
+      ScrollMode	      off
     }
     Line {
       ZOrder		      2
@@ -2740,107 +2783,134 @@ Model {
       DstPort		      2
     }
     Line {
-      ZOrder		      4
-      SrcBlock		      "Namerene"
-      SrcPort		      1
-      DstBlock		      "Demux"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      5
-      SrcBlock		      "Demux"
-      SrcPort		      1
-      DstBlock		      "enc_to_rad_ram"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      6
-      SrcBlock		      "Demux"
-      SrcPort		      2
-      DstBlock		      "enc_to_rad_kyv"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      7
-      SrcBlock		      "Nelinearni"
-      SrcPort		      1
-      DstBlock		      "Mux"
-      DstPort		      2
-    }
-    Line {
-      ZOrder		      8
+      ZOrder		      21
       SrcBlock		      "Linearni"
-      SrcPort		      1
-      Points		      [50, 0; 0, -80]
-      DstBlock		      "Mux"
-      DstPort		      3
-    }
-    Line {
-      ZOrder		      9
-      SrcBlock		      "Nelinearni"
       SrcPort		      2
-      Points		      [25, 0; 0, 50]
+      Points		      [63, 0; 0, -30]
       DstBlock		      "Mux1"
       DstPort		      2
     }
     Line {
-      ZOrder		      10
-      SrcBlock		      "Linearni"
-      SrcPort		      2
-      Points		      [65, 0]
-      DstBlock		      "Mux1"
-      DstPort		      3
-    }
-    Line {
-      Name		      "nam_phim"
-      ZOrder		      11
-      Labels		      [2, 0]
-      SrcBlock		      "enc_to_rad_ram"
+      ZOrder		      18
+      SrcBlock		      "Nelinearni"
       SrcPort		      1
-      Points		      [70, 0; 0, 110]
-      DstBlock		      "Mux"
-      DstPort		      1
+      Points		      [45, 0; 0, -10]
+      Branch {
+	ZOrder			28
+	DstBlock		"Mux"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			27
+	Points			[0, -11; -255, 0]
+	DstBlock		"Sum"
+	DstPort			1
+      }
     }
     Line {
-      ZOrder		      12
-      SrcBlock		      "input_to_M"
+      ZOrder		      19
+      SrcBlock		      "Linearni"
       SrcPort		      1
       Points		      [45, 0]
       Branch {
-	ZOrder			13
-	DstBlock		"Nelinearni"
-	DstPort			1
+	ZOrder			32
+	Points			[0, 72; -255, 0]
+	DstBlock		"Sum1"
+	DstPort			2
       }
       Branch {
-	ZOrder			14
-	Points			[0, 90]
-	DstBlock		"Linearni"
-	DstPort			1
+	ZOrder			31
+	Points			[0, -80]
+	DstBlock		"Mux"
+	DstPort			2
       }
     }
     Line {
-      ZOrder		      15
-      SrcBlock		      "enc_to_rad_kyv"
-      SrcPort		      1
-      DstBlock		      "Sum"
-      DstPort		      1
-    }
-    Line {
-      Name		      "nam_phip"
-      ZOrder		      16
-      Labels		      [0, 1]
-      SrcBlock		      "Sum"
-      SrcPort		      1
-      Points		      [11, 1; 0, 138]
+      ZOrder		      20
+      SrcBlock		      "Nelinearni"
+      SrcPort		      2
+      Points		      [20, 0; 0, 40]
       DstBlock		      "Mux1"
       DstPort		      1
     }
     Line {
-      ZOrder		      17
-      SrcBlock		      "C"
+      ZOrder		      25
+      SrcBlock		      "Step"
       SrcPort		      1
-      DstBlock		      "Sum"
-      DstPort		      2
+      Points		      [66, 0]
+      Branch {
+	ZOrder			34
+	Points			[0, 90]
+	DstBlock		"Sum1"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			33
+	DstBlock		"Sum"
+	DstPort			2
+      }
+    }
+    Line {
+      ZOrder		      43
+      SrcBlock		      "Sum"
+      SrcPort		      1
+      DstBlock		      "Transfer Fcn"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      44
+      SrcBlock		      "Sum1"
+      SrcPort		      1
+      DstBlock		      "Transfer Fcn1"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      46
+      SrcBlock		      "Transfer Fcn"
+      SrcPort		      1
+      DstBlock		      "Gain"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      47
+      SrcBlock		      "Gain"
+      SrcPort		      1
+      Points		      [0, 0]
+      Branch {
+	ZOrder			51
+	Points			[0, -95]
+	DstBlock		"u"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			50
+	DstBlock		"Nelinearni"
+	DstPort			1
+      }
+    }
+    Line {
+      ZOrder		      52
+      SrcBlock		      "Transfer Fcn1"
+      SrcPort		      1
+      DstBlock		      "Gain1"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      53
+      SrcBlock		      "Gain1"
+      SrcPort		      1
+      Points		      [5, 0]
+      Branch {
+	ZOrder			55
+	Points			[0, -170]
+	DstBlock		"u"
+	DstPort			2
+      }
+      Branch {
+	ZOrder			54
+	DstBlock		"Linearni"
+	DstPort			1
+      }
     }
   }
 }
