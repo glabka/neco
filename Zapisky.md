@@ -49,3 +49,9 @@
 ###Poznámky k poznámkám, které nám dal cvičící k zpracování:
 * 5. úloha má špatný přenos, správně by měl mít nulu (v případě, že bereme počáteční podmínku rychlosti za nulovou), pak by to mělo vyjít:
 	* phip = (2 delta + Jp*s) / (Jp*s^2+2*delta*s+m*g*l)
+#Regulace
+##regulatory
+* lead-lag, co Matous navrhl rltoolem, a zapomnel ho vydelit 16, aby to bylo v u_norm a ne M, a v tomto stavu byl dobry
+* pouze zesileni 16 ve zpetne vazbe je dobry degulator - na modelu. Ale nejaky P by mel bezet i v realu, protoze v tom je integrator.
+
+

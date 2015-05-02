@@ -1,4 +1,6 @@
-clear;%clc;
+if ~exist('Hlin', 'var')
+    main;
+end
 syms s;
 load('stav_lin.mat');
 system = Clin*((s*eye(size(Alin)) - Alin)\Blin);
@@ -23,5 +25,12 @@ Lpid = pid * system;
 Hpid = Lpid / (1 + Lpid);
 Hpid = vpa(simplify(Hpid));
 
-
+%% 
+%potreba zpustin main
+Hlin_m = minreal(zpk(Hlin(1))); %aby sli videt nuly a poly a pak pr. Hlin_m.k a mam zesileni
+Hlin_m_p = rdf(Hlin(1));
+a = Hlin_m_p.den;
+b = Hlin_m_p.num;
+c = (s + 5 + j) * (s + 5 - j);
+[x, y] = axbyc(a,b,c,'minx');
 
