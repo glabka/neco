@@ -89,8 +89,8 @@ Dlin = subs(Dlin, us, ups);
 Alin = eval(Alin);
 Blin = eval(Blin);
 %Tohle je potreba ve starym MATLABu zakomentit
-% Clin = eval(Clin);
-% Dlin = eval(Dlin);
+Clin = eval(Clin);
+Dlin = eval(Dlin);
 
 s = tf('s');
 Hlin = Clin/(s*eye(length(Alin)) - Alin)*Blin + Dlin;
