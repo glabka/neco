@@ -64,5 +64,6 @@
 	* není to lead-lag, když jsou ty obě nuly napravo od obou pólů, ale když to funguje, tak je to ok.
 
 #Cviko 5.5
+* **Pozor:** všechny regulátory jsou rovnou navrženy tak, že je nemusíme dělit 16.
 * P regulator ramene. 0.1 je libové až na to, že to teda nemá nenulovou ustálenou odchylku.
-* 
+* Dále jsme rltoolem udělali regulátor na kyvadlo, který je docela nanic.
