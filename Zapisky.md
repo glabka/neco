@@ -59,4 +59,10 @@
 * Když chceme kyvadlu nastavit počáteční podmínku do 0 ve phi-souřadnicích (tj. horizontálně), tak u lin. modelu nastavíme na kostce state space [0 pi/2 0 0] (tj. výchylku relativně k pracovnímu bodu) a pro nelineární model změníme ve workspacu proměnno x2p na 0.
 * Do nuly se to ustaluje díky deriv. členu. Dále to nesleduje skok, a proto jediná myslitelná reference -pi/2 v phi-souřadnicích, jen v tomto případě se akční zásach ustáli do 0 (podmínka ze zadání).
 * Musíme transormovat referenci podle toho, na kterou stranu je vychýhlená, na jedu stranu se regulátor snaží dostat kyvadlo do nuly přetočením přes horní polohu (neví, 2pi == 0 nebo tak něco). Možná by to šlo vyřešit tak, že bychom tu "špatnou referenci" přenásobili -1, regulátor bychom to nechali spočítat a jeho výstup bychom opět vynásobili -1.
+	* cvíčící (pan Šulc) říkal, že i toto i modulo by mohlo fungovat.
 * Doufáme, že ten regulátor kyvadla, co je rac. fce, kde čit. i jmenovatel jsou řádu 2 je lead-lag, tj. ty póly jsou vždy jeden menší, druhý větší, nebo jak to v leadu, res. lagu, je - kdyžtak se zeptej cvičícího.
+	* není to lead-lag, když jsou ty obě nuly napravo od obou pólů, ale když to funguje, tak je to ok.
+
+#Cviko 5.5
+* P regulator ramene. 0.1 je libové až na to, že to teda nemá nenulovou ustálenou odchylku.
+* 
