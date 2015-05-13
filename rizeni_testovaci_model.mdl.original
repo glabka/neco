@@ -55,7 +55,7 @@ Model {
 	LoadSaveID		"0"
 	Extents			[1372.0, 728.0]
 	ZoomFactor		[1.5]
-	Offset			[-60.211721611721657, -42.772893772893553]
+	Offset			[-60.211721611721657, -42.772893772893696]
       }
     }
   }
@@ -65,8 +65,8 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "student"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue May 12 14:54:06 2015"
-  RTWModifiedTimeStamp	  353337405
+  LastModifiedDate	  "Tue May 12 12:57:10 2015"
+  RTWModifiedTimeStamp	  353336229
   ModelVersionFormat	  "1.%<AutoIncrement:12>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
@@ -1009,7 +1009,7 @@ Model {
   System {
     Name		    "rizeni_testovaci_model"
     Location		    [35, 305, 1457, 1207]
-    Open		    off
+    Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1287,7 +1287,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Nelinearni"
-	Location		[35, 305, 1457, 1207]
+	Location		[126, 103, 1548, 1005]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -2810,8 +2810,8 @@ Model {
       SID		      "78"
       Position		      [295, 67, 355, 103]
       ZOrder		      -9
-      Numerator		      "tf(C).num{1}"
-      Denominator	      "tf(C).den{1}"
+      Numerator		      "C.num{1}"
+      Denominator	      "C.den{1}"
     }
     Block {
       BlockType		      TransferFcn
@@ -2819,8 +2819,8 @@ Model {
       SID		      "162"
       Position		      [295, 157, 355, 193]
       ZOrder		      15
-      Numerator		      "tf(C).num{1}"
-      Denominator	      "tf(C).den{1}"
+      Numerator		      "C.num{1}"
+      Denominator	      "C.den{1}"
     }
     Block {
       BlockType		      Scope
@@ -2867,7 +2867,7 @@ Model {
       ZOrder		      -16
       Floating		      off
       Location		      [11, 60, 1377, 776]
-      Open		      off
+      Open		      on
       NumInputPorts	      "2"
       List {
 	ListType		AxesTitles
@@ -2958,7 +2958,6 @@ Model {
       }
       ShowLegends	      on
       LegendLocations	      "0.88394     0.89245    0.087995    0.047028\n0.88394     0.42597    0.087995    0.047028"
-      TimeRange		      "10"
       YMin		      "-5~-5"
       YMax		      "5~5"
       SaveToWorkspace	      on
@@ -2984,6 +2983,10 @@ Model {
       DstPort		      2
     }
     Line {
+      FontName		      "Helvetica"
+      FontSize		      9
+      FontWeight	      "normal"
+      FontAngle		      "normal"
       ZOrder		      24
       SrcBlock		      "Linearni"
       SrcPort		      1
@@ -2992,6 +2995,10 @@ Model {
       DstPort		      2
     }
     Line {
+      FontName		      "Helvetica"
+      FontSize		      9
+      FontWeight	      "normal"
+      FontAngle		      "normal"
       ZOrder		      25
       SrcBlock		      "Nelinearni"
       SrcPort		      1
@@ -3000,6 +3007,10 @@ Model {
       DstPort		      1
     }
     Line {
+      FontName		      "Helvetica"
+      FontSize		      9
+      FontWeight	      "normal"
+      FontAngle		      "normal"
       ZOrder		      23
       SrcBlock		      "Linearni"
       SrcPort		      2
@@ -3017,6 +3028,10 @@ Model {
       }
     }
     Line {
+      FontName		      "Helvetica"
+      FontSize		      9
+      FontWeight	      "normal"
+      FontAngle		      "normal"
       ZOrder		      26
       SrcBlock		      "Nelinearni"
       SrcPort		      2
@@ -3035,6 +3050,10 @@ Model {
       }
     }
     Line {
+      FontName		      "Helvetica"
+      FontSize		      9
+      FontWeight	      "normal"
+      FontAngle		      "normal"
       ZOrder		      48
       SrcBlock		      "Sum"
       SrcPort		      1
@@ -3052,6 +3071,10 @@ Model {
       }
     }
     Line {
+      FontName		      "Helvetica"
+      FontSize		      9
+      FontWeight	      "normal"
+      FontAngle		      "normal"
       ZOrder		      28
       SrcBlock		      "Transfer Fcn"
       SrcPort		      1
@@ -3069,6 +3092,10 @@ Model {
       }
     }
     Line {
+      FontName		      "Helvetica"
+      FontSize		      9
+      FontWeight	      "normal"
+      FontAngle		      "normal"
       ZOrder		      47
       SrcBlock		      "Sum1"
       SrcPort		      1
@@ -3086,6 +3113,10 @@ Model {
       }
     }
     Line {
+      FontName		      "Helvetica"
+      FontSize		      9
+      FontWeight	      "normal"
+      FontAngle		      "normal"
       ZOrder		      41
       SrcBlock		      "Transfer Fcn1"
       SrcPort		      1

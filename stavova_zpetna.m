@@ -1,6 +1,7 @@
 %%
+load('potreba_pro_kompilaci.mat');
 %Definice konstant a promennych
-setup_vars
+% setup_vars
 syms k1 k2 k3 phim phip phimd phipd M kmot delta b Jm Jp m r l g u;
 
 
@@ -42,9 +43,9 @@ Blin = jacobian(xds, M);
 Clin = jacobian(ys, xs);
 Dlin = jacobian(ys, u);
 
-%Pracovni bod
+%Pracovni bod - Nahoře!!!
 x1p = 0;
-x2p = -pi/2;
+x2p = pi/2;
 x3p = 0;
 x4p = 0;
 up1 = 0;
@@ -67,7 +68,7 @@ r = 0.2;
 %Zjistene parametry (i sdruzene)
 % sdr1 = kmot/b == 3700;
 %ku = 12680000;
-ku = 100;
+ku = 16;
 kram_rad = 2*pi/7300;
 kkyv_rad = -2*pi/2000;
 glabatom;
@@ -87,7 +88,40 @@ Dlin = subs(Dlin, us, ups);
 
 Alin = eval(Alin);
 Blin = eval(Blin);
+%Tohle je potreba ve starym MATLABu zakomentit
 Clin = eval(Clin);
 Dlin = eval(Dlin);
 
+s = tf('s');
+Hlin = Clin/(s*eye(length(Alin)) - Alin)*Blin + Dlin;
+
 x0 = [x1p; x2p; x3p; x4p];
+
+
+%% Návrh stavové zpětné vazby
+state = ss(Alin, Blin, Clin, Dlin);
+Htomas=tf(state);
+% pzplot(Htomas);
+% póly jsou přibližně -10, -6, 0, 7
+% póly chceme př jako: -10, -6, -6, -6
+P = [-10, -6, -6, -6];
+K = acker(Alin, Blin,P);
+eig(Alin)
+
+%% Návrh stavové zpětné vazby s integrátorem
+Cszv = [0,1,0,0];
+Dszv = [0];
+[rows, columns] = size(Alin);
+Abig = [Alin, zeros(rows, 1);...
+        -Cszv, 0 ];
+Bbig = [Blin;...
+        0];
+Cbig = [Cszv, 0];
+state2 = ss(Abig, Bbig, Cbig, Dszv);
+Htomas2=tf(state2);
+% pzplot(Htomas2);
+K2 = acker(Abig, Bbig, [-0.01, -0.01, -0.0001, -0.0001, -0.01])
+eig(Abig)
+
+
+
