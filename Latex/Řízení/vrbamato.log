@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.2.17)  13 MAY 2015 12:59
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.2.17)  13 MAY 2015 15:50
 entering extended mode
 **vrbamato.tex
 
@@ -521,16 +521,34 @@ Package pdftex.def Info: odezva_kyvadlo_poly_akcnizasah.pdf used on input line
 [3 <C:/Users/Matous/Dropbox/ČVUT/ARI/Práce/Laboratorní úloha/neco/Latex/Ř�
 �zení/odezva_kyvadlo_poly.pdf> <C:/Users/Matous/Dropbox/ČVUT/ARI/Práce/Labor
 atorní úloha/neco/Latex/Řízení/odezva_kyvadlo_poly_akcnizasah.pdf>]
+<odezva_kyvadlo_PID.pdf, id=58, 845.1575pt x 597.23125pt>
+File: odezva_kyvadlo_PID.pdf Graphic file (type pdf)
+
+<use odezva_kyvadlo_PID.pdf>
+Package pdftex.def Info: odezva_kyvadlo_PID.pdf used on input line 84.
+(pdftex.def)             Requested size: 464.83806pt x 328.4782pt.
+
+<odezva_kyvadlo_PID_akcnizasah.pdf, id=59, 845.1575pt x 597.23125pt>
+File: odezva_kyvadlo_PID_akcnizasah.pdf Graphic file (type pdf)
+
+<use odezva_kyvadlo_PID_akcnizasah.pdf>
+Package pdftex.def Info: odezva_kyvadlo_PID_akcnizasah.pdf used on input line 8
+9.
+(pdftex.def)             Requested size: 464.83806pt x 328.4782pt.
+ [4 <C:/Users/Matous/Dropbox/ČVUT/ARI/Práce/Laboratorní úloha/neco/Latex/Ř
+ízení/odezva_kyvadlo_PID.pdf>]
+[5 <C:/Users/Matous/Dropbox/ČVUT/ARI/Práce/Laboratorní úloha/neco/Latex/Ř�
+�zení/odezva_kyvadlo_PID_akcnizasah.pdf>]
 ("C:\Users\Matous\Dropbox\ČVUT\ARI\Práce\Laboratorní úloha\neco\Latex\Říz
 ení\vrbamato.aux") ) 
 Here is how much of TeX's memory you used:
- 4026 strings out of 493921
- 57052 string characters out of 3147279
+ 4036 strings out of 493921
+ 57365 string characters out of 3147279
  126848 words of memory out of 3000000
- 7282 multiletter control sequences out of 15000+200000
+ 7290 multiletter control sequences out of 15000+200000
  10901 words of font info for 39 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 42i,8n,40p,858b,278s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,9n,40p,858b,278s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/
@@ -542,9 +560,9 @@ onts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 msfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
 cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12
 .pfb>
-Output written on vrbamato.pdf (3 pages, 265631 bytes).
+Output written on vrbamato.pdf (5 pages, 343061 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
+ 134 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

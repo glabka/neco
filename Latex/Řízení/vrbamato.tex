@@ -66,23 +66,19 @@ Až na tuto chybu ale regulátor funguje velmi dobře a kyvadlo stabilizuje vžd
 \end{figure}
 
 
-\subsection{PID regulátor, navržený root locusem}
-Tento regulátor jsme navrhovali polynomiálními metodami. Nejdříve jsme si rozumně určili polohy, do kterých bychom chtěli posunout póly výsledného systému a sestavili charakteristický polynom $c(s)$ pro tyto póly. Potom jsme dosadili do rovnice pro charakteristický polynom výsledného systému se zapojeným regulátorem, kde regulátor $C = \frac{y(s)}{x(s)}$ a soustava $G = \frac{b(s)}{a(s)}$, a tuto rovnici se dvěma neznámými polynomy $y$ a $x$ vyřešili pomocí funkce Polynomial Toolboxu \textit{axbyc} s parametrem \textit{"miny"}:
+\subsection{PID regulátor, navržený autotunem}
+Tento regulátor jsme navrhli po několika neúspěšných pokusech v rltoolu navrhnout nějaký rozumný PID regulátor pomocí funkce autotune. Parametry jsme nastavili na PID tuning, robustní časovou odezvu, PID s filtrovanou D složkou prvního řádu a vyváženou robustnost a výkon.
+\newline
+Obecná rovnice PID regulátoru a hodnoty, navržené autotunem:
 \begin{align*}
-c(s) &= (s + 12) (s + 5 - 10j) (s + 5 + 10j) (s + 20)^2	\\
-b(s)\cdot y(s) + a(s)\cdot x(s) &= c(s)	\\
--18,1s\cdot y(s) + (s^3 + 7,021s^2 + 74,37s + 461)\cdot x(s) &=  (s + 12) (s + 5 - 10j) (s + 5 + 10j) (s + 20)^2
+C &= K_P + K_I\frac{1}{s} + K_D\frac{N}{1+N\frac{1}{s}}	\\
+C &= 2,09 + 7,91\frac{1}{s} + 0,121\frac{238}{1 + 238\frac{1}{s}}
 \end{align*}
-Do žádaného charakteristického polynomu jsme museli přidat dva póly ($(s+20)^2$), aby měla tato rovnice řešení, které vede na ryzí regulátor.
-\newline
-Výsledný přenos regulátoru:
+Přenos, navržený autotunem:
 \begin{align*}
-C = \frac{13,09s^2 - 354,3s - 1981}{16s^2 + 879,7 + 20820}
+C = -100,67\cdot\frac{(s+10,68)(s+5,715)}{s(s+238)}
 \end{align*}
-Příklad odezvy kyvadla s tímto regulátorem na poruchu je na grafech na další stránce. Z grafů je vidět, že kyvadlo se neustaluje na nulové odchylce, což je způsobeno chybou enkoderových snímačů (nebo komunikace řídicího modulu s MATLABem), které někdy vynechávají kroky. Tato chyba se naintegruje a má za následek odchylku od reference, i když je kyvadlo už ve skutečnosti ustálené.
-\newline
-\newline
-Až na tuto chybu ale regulátor funguje velmi dobře a kyvadlo stabilizuje vždy maximálně do dvou sekund.
+Následují jsou grafy odezvy kyvadla na poruchu. Tento regulátor stabilizuje velmi rychle - okolo jedné sekundy, ale kvůli nedokonalosti modelu, který nepočítá s vlivem rychlosti ramene na výchylku kyvadla, ustálenému akčnímu zásahu, který není nulový, a také kvůli již zmiňované chybě enkodérů, se systém s regulátorem po delší době destabilizuje.
 \begin{figure}[H]
 	\centering
     \includegraphics[scale=0.55]{odezva_kyvadlo_PID}
