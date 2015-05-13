@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.12"
+    ComputedModelVersion    "1.13"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -29,7 +29,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [35.0, 305.0, 1422.0, 902.0]
+      Location		      [-8.0, -8.0, 1936.0, 1096.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -53,9 +53,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1372.0, 728.0]
-	ZoomFactor		[1.5]
-	Offset			[-60.211721611721657, -42.772893772893553]
+	Extents			[1886.0, 922.0]
+	ZoomFactor		[3.0]
+	Offset			[83.77229803653556, -26.021702462135508]
       }
     }
   }
@@ -63,11 +63,11 @@ Model {
   Creator		  "matous"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "student"
+  LastModifiedBy	  "Matous"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue May 12 14:54:06 2015"
-  RTWModifiedTimeStamp	  353337405
-  ModelVersionFormat	  "1.%<AutoIncrement:12>"
+  LastModifiedDate	  "Wed May 13 12:20:13 2015"
+  RTWModifiedTimeStamp	  353420406
+  ModelVersionFormat	  "1.%<AutoIncrement:13>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1008,8 +1008,8 @@ Model {
   }
   System {
     Name		    "rizeni_testovaci_model"
-    Location		    [35, 305, 1457, 1207]
-    Open		    off
+    Location		    [-8, -8, 1928, 1088]
+    Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1020,15 +1020,33 @@ Model {
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "150"
+    ZoomFactor		    "300"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "165"
+    Block {
+      BlockType		      TransferFcn
+      Name		      "C"
+      SID		      "78"
+      Position		      [295, 67, 355, 103]
+      ZOrder		      -9
+      Numerator		      "tf(C).num{1}"
+      Denominator	      "tf(C).den{1}"
+    }
+    Block {
+      BlockType		      TransferFcn
+      Name		      "C "
+      SID		      "162"
+      Position		      [295, 157, 355, 193]
+      ZOrder		      15
+      Numerator		      "tf(C).num{1}"
+      Denominator	      "tf(C).den{1}"
+    }
     Block {
       BlockType		      SubSystem
       Name		      "Linearni"
       SID		      "86"
       Ports		      [1, 2]
-      Position		      [390, 145, 455, 205]
+      Position		      [445, 145, 510, 205]
       ZOrder		      13
       RequestExecContextInheritance off
       System {
@@ -1260,7 +1278,7 @@ Model {
       Name		      "Mux"
       SID		      "13"
       Ports		      [2, 1]
-      Position		      [560, 51, 565, 89]
+      Position		      [615, 51, 620, 89]
       ZOrder		      -12
       ShowName		      off
       Inputs		      "2"
@@ -1271,7 +1289,7 @@ Model {
       Name		      "Mux1"
       SID		      "14"
       Ports		      [2, 1]
-      Position		      [560, 161, 565, 199]
+      Position		      [615, 161, 620, 199]
       ZOrder		      -12
       ShowName		      off
       Inputs		      "2"
@@ -1282,7 +1300,7 @@ Model {
       Name		      "Nelinearni"
       SID		      "99"
       Ports		      [1, 2]
-      Position		      [390, 55, 455, 115]
+      Position		      [445, 55, 510, 115]
       ZOrder		      12
       RequestExecContextInheritance off
       System {
@@ -2654,7 +2672,7 @@ Model {
       Name		      "PID Controller"
       SID		      "161"
       Ports		      [1, 1]
-      Position		      [135, 362, 175, 398]
+      Position		      [135, 417, 175, 453]
       ZOrder		      14
       LibraryVersion	      "1.354"
       SourceBlock	      "simulink/Continuous/PID Controller"
@@ -2768,7 +2786,7 @@ Model {
       BlockType		      Step
       Name		      "Step"
       SID		      "75"
-      Position		      [15, 70, 45, 100]
+      Position		      [105, 70, 135, 100]
       ZOrder		      -22
       Time		      "0"
       After		      "-pi/2"
@@ -2803,24 +2821,6 @@ Model {
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
       SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      TransferFcn
-      Name		      "Transfer Fcn"
-      SID		      "78"
-      Position		      [295, 67, 355, 103]
-      ZOrder		      -9
-      Numerator		      "tf(C).num{1}"
-      Denominator	      "tf(C).den{1}"
-    }
-    Block {
-      BlockType		      TransferFcn
-      Name		      "Transfer Fcn1"
-      SID		      "162"
-      Position		      [295, 157, 355, 193]
-      ZOrder		      15
-      Numerator		      "tf(C).num{1}"
-      Denominator	      "tf(C).den{1}"
     }
     Block {
       BlockType		      Scope
@@ -2863,7 +2863,7 @@ Model {
       Name		      "phim a phip"
       SID		      "77"
       Ports		      [2]
-      Position		      [600, 91, 630, 124]
+      Position		      [655, 91, 685, 124]
       ZOrder		      -16
       Floating		      off
       Location		      [11, 60, 1377, 776]
@@ -2899,7 +2899,7 @@ Model {
       Name		      "phim a phip2"
       SID		      "164"
       Ports		      [2]
-      Position		      [645, 296, 675, 329]
+      Position		      [215, 411, 245, 444]
       ZOrder		      17
       Floating		      off
       Location		      [11, 60, 1377, 776]
@@ -3006,7 +3006,7 @@ Model {
       Points		      [21, 0]
       Branch {
 	ZOrder			46
-	Points			[0, 42; -286, 0]
+	Points			[0, 42; -341, 0]
 	DstBlock		"Sum1"
 	DstPort			2
       }
@@ -3023,7 +3023,7 @@ Model {
       Points		      [29, 0]
       Branch {
 	ZOrder			44
-	Points			[0, -59; -294, 0]
+	Points			[0, -59; -349, 0]
 	DstBlock		"Sum"
 	DstPort			1
       }
@@ -3047,13 +3047,13 @@ Model {
       }
       Branch {
 	ZOrder			63
-	DstBlock		"Transfer Fcn"
+	DstBlock		"C"
 	DstPort			1
       }
     }
     Line {
       ZOrder		      28
-      SrcBlock		      "Transfer Fcn"
+      SrcBlock		      "C"
       SrcPort		      1
       Points		      [1, 0]
       Branch {
@@ -3081,13 +3081,13 @@ Model {
       }
       Branch {
 	ZOrder			65
-	DstBlock		"Transfer Fcn1"
+	DstBlock		"C "
 	DstPort			1
       }
     }
     Line {
       ZOrder		      41
-      SrcBlock		      "Transfer Fcn1"
+      SrcBlock		      "C "
       SrcPort		      1
       Points		      [3, 0]
       Branch {
@@ -3106,7 +3106,7 @@ Model {
       ZOrder		      19
       SrcBlock		      "Step"
       SrcPort		      1
-      Points		      [80, 0]
+      Points		      [19, 0]
       Branch {
 	ZOrder			20
 	DstBlock		"Sum"
