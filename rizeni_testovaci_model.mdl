@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.13"
+    ComputedModelVersion    "1.14"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -54,8 +54,8 @@ Model {
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
 	Extents			[1886.0, 922.0]
-	ZoomFactor		[3.0]
-	Offset			[83.77229803653556, -26.021702462135508]
+	ZoomFactor		[2.5]
+	Offset			[-22.127701963464517, 172.01163087119784]
       }
     }
   }
@@ -65,9 +65,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Matous"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed May 13 12:20:13 2015"
-  RTWModifiedTimeStamp	  353420406
-  ModelVersionFormat	  "1.%<AutoIncrement:13>"
+  LastModifiedDate	  "Wed May 13 22:45:05 2015"
+  RTWModifiedTimeStamp	  353420426
+  ModelVersionFormat	  "1.%<AutoIncrement:14>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1020,9 +1020,19 @@ Model {
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "300"
+    ZoomFactor		    "250"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "165"
+    Block {
+      BlockType		      Step
+      Name		      "-pi/2"
+      SID		      "75"
+      Position		      [105, 70, 135, 100]
+      ZOrder		      -22
+      Time		      "0"
+      After		      "-pi/2"
+      SampleTime	      "0"
+    }
     Block {
       BlockType		      TransferFcn
       Name		      "C"
@@ -2783,16 +2793,6 @@ Model {
       UseFilter		      on
     }
     Block {
-      BlockType		      Step
-      Name		      "Step"
-      SID		      "75"
-      Position		      [105, 70, 135, 100]
-      ZOrder		      -22
-      Time		      "0"
-      After		      "-pi/2"
-      SampleTime	      "0"
-    }
-    Block {
       BlockType		      Sum
       Name		      "Sum"
       SID		      "80"
@@ -3104,7 +3104,7 @@ Model {
     }
     Line {
       ZOrder		      19
-      SrcBlock		      "Step"
+      SrcBlock		      "-pi/2"
       SrcPort		      1
       Points		      [19, 0]
       Branch {

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 \documentclass[11pt,a4paper]{article}
 \usepackage[czech]{babel}
 \usepackage[utf8]{inputenc}
@@ -127,4 +128,66 @@ Proporční zpětnovazební regulátor jsme navrhovali přímo na modelu a jeho 
 
 \subsection{•}
 
+=======
+\documentclass[11pt,a4paper]{article}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{float} %kvůli umístění tabulek a podobně.
+%\usepackage[]{mcode} %pro matlabovský kód
+\usepackage{etoolbox} %kvůli strequal v newcommand
+
+
+
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{graphicx}	%kvůli pdf souboru z MATLABu
+\usepackage{caption}		%kvůli umístění několika obrázku do jednoho figuru
+\usepackage{subcaption} %kvůli umístění několika obrázku do jednoho figuru
+\usepackage{setspace}	%rozteče v maticích
+\usepackage{verbatim}   %víceřádkové komentáře
+\usepackage{siunitx}	%hezký jednotky
+
+\sisetup{locale = DE} % kvůli desetinné čárce (př. v siunits.)
+
+
+% === Formát stránky ===
+\usepackage[a4paper]{geometry}
+\geometry{
+	verbose,
+	tmargin=2.2cm,
+	bmargin=1.5cm,
+	lmargin=1.5cm,
+	rmargin=1.5cm}
+
+\title{%
+  Laboratorní úloha - řídící část\\
+  \large Rotační kyvadlo}
+\author{Tomáš Glabazňa, Matouš Vrba}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\clearpage
+
+\section{Proporční regulátor}
+
+Proporční zpětnovazební regulátor jsme navrhovali přímo na modelu a jeho vhodnou hodnotu jsme určili experimentálně jako 0,2. Z grafu \ref{ram_p_odz} je vidět, že překmit ramene je přibližně 10\% a rameno se ustálí v požadované hodnotě přibližně za 1 sekundu. Akční zásah, viz. graf. \ref{ram_p_akc}, sice z počátku překročí saturační hodnotu tj. 1,  
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{rameno_odezva_10_P}
+\caption{Odezva ramene na referenci 10}
+\label{ram_p_odz}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{rameno_odezva_10_P_akcnizasah}
+\caption{Akční zásah proporčního regulátoru při referenci 10}
+\label{ram_p_akc}
+\end{figure}
+>>>>>>> 868f48ec5268fabb1530a6ac398fcdf4e2be3df8
 \end{document}
