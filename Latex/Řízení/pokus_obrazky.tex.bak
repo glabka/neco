@@ -23,21 +23,6 @@
 
 
 \begin{document}
-%rameno_odezva_a_porucha_leadlagmozna_-1.eps
-%rameno_odezva_a_porucha_leadlagmozna2_-1.eps
-%rameno_odezva_a_porucha_leadlagmozna2_akcnizasah-1.eps
-%rameno_odezva_a_porucha_leadlagmozna_2pi.eps
-
-%rameno_odezva_a_porucha_leadlagmozna_akcnizasah_-1.eps
-%rameno_odezva_a_porucha_leadlagmozna_akcnizasah_2pi.eps
-
-%rameno_odezva_a_porucha_P_-1.eps
-%rameno_odezva_a_porucha_P_akcnizasah_-1.eps
-
-%rameno_odezva_na1_P_akcnizasah.eps
-%rameno_odezva_na1_P.eps
-
-
 
 % leadlagmozna -1
 \begin{figure}[H]
@@ -76,25 +61,21 @@
 
 
 
+% P 1 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{dobre_grafy/rameno_odezva_na1_P_akcnizasah.eps}
+\caption{rameno odezva na1 P akcnizasah.eps}
+\label{ram_p_akc}
+\end{figure}
 
-% leadlagmozna 2pi
-%\begin{figure}[H]
-%\centering
-%\includegraphics[width=0.7\textwidth]{dobre_grafy/rameno_odezva_a_porucha_leadlagmozna.eps}
-%\caption{rameno odezva a porucha leadlagmozna.eps}
-%\label{ram_p_akc}
-%\end{figure}
-%
-%\begin{figure}[H]
-%\centering
-%\includegraphics[width=0.7\textwidth]{dobre_grafy/rameno_odezva_a_porucha_leadlagmozna_akcnizasah.eps}
-%\caption{rameno odezva a porucha leadlagmozna akcnizasah.eps}
-%\label{ram_p_akc}
-%\end{figure}
-% leadlagmozna 2pi -- end
-
-
-
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{dobre_grafy/rameno_odezva_na1_P.eps}
+\caption{rameno odezva na1 P.eps}
+\label{ram_p_akc}
+\end{figure}
+% P 1 -- end
 
 % P -1
 \begin{figure}[H]
@@ -111,25 +92,6 @@
 \label{ram_p_akc}
 \end{figure}
 % P -1 -- end
-
-
-
-
-% P 1 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.7\textwidth]{dobre_grafy/rameno_odezva_na1_P_akcnizasah.eps}
-\caption{rameno odezva na1 P akcnizasah.eps}
-\label{ram_p_akc}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.7\textwidth]{dobre_grafy/rameno_odezva_na1_P.eps}
-\caption{rameno odezva na1 P.eps}
-\label{ram_p_akc}
-\end{figure}
-% P 1 -- end
 
 
 \end{document}

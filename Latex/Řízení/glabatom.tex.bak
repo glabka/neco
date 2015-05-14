@@ -101,27 +101,83 @@ Následují jsou grafy odezvy kyvadla na poruchu. Tento regulátor stabilizuje v
 
 
 \section{Regulátory polohy ramene}
-%Tady něco dopiš a přidej obrázek, stejně jak to má Matouš (ten simulinkový model je v souboru
-%rizeni_testovaci_model.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{schema_rizeni_nanecisto.jpg}
+\caption{Zapojení pro testování regulátorů}
+\label{ram_p_1}
+\end{figure}
 
 \subsection{Proporční regulátor}
 
-Proporční zpětnovazební regulátor jsme navrhovali přímo na modelu a jeho vhodnou hodnotu jsme určili experimentálně jako 0,2. Z grafu \ref{ram_p_odz} je vidět, že překmit ramene je přibližně 10\% a rameno se ustálí v požadované hodnotě přibližně za 1 sekundu. Akční zásah, viz. graf. \ref{ram_p_akc}, sice z počátku překročí saturační hodnotu tj. 1, což však, jak jde vidět z hodnot grafu \ref{ram_p_odz}, nevadí, negativní vliv na překmit to nemá.
+Proporční zpětnovazební regulátor jsme navrhovali přímo na modelu a jeho vhodnou hodnotu jsme určili experimentálně jako 0,2. Z grafů \ref{ram_p_1} a \ref{ram_p_-1} je vidět, že překmit ramene je přibližně 10\% a rameno se ustálí v požadované hodnotě přibližně za 1 sekundu. Akční zásah, viz. graf. \ref{ram_p_akc}, sice z počátku překročí saturační hodnotu tj. 1, což však, jak jde vidět z hodnot grafu \ref{ram_p_odz}, nevadí, negativní vliv na překmit to nemá.
 
+% P 1 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{rameno_odezva_10_P}
-\caption{Odezva ramene na referenci 10}
-\label{ram_p_odz}
+\includegraphics[width=0.7\textwidth]{dobre_grafy/rameno_odezva_na1_P_akcnizasah.eps}
+\caption{rameno odezva na1 P akcnizasah.eps}
+\label{ram_p_1}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{rameno_odezva_10_P_akcnizasah}
-\caption{Akční zásah proporčního regulátoru při referenci 10}
-\label{ram_p_akc}
+\includegraphics[width=0.7\textwidth]{dobre_grafy/rameno_odezva_na1_P.eps}
+\caption{rameno odezva na1 P.eps}
+\label{ram_p_1_akc}
+\end{figure}
+% P 1 -- end
+
+% P -1
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{dobre_grafy/rameno_odezva_a_porucha_P_-1.eps}
+\caption{rameno odezva a porucha P -1.eps}
+\label{ram_p_-1}
 \end{figure}
 
-\subsection{•}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{dobre_grafy/rameno_odezva_a_porucha_P_akcnizasah_-1.eps}
+\caption{rameno odezva a porucha P akcnizasah -1.eps}
+\label{ram_p_-1_akc}
+\end{figure}
+% P -1 -- end
+
+
+\subsection{První obecný regulátor 2 řádu}
+% leadlagmozna -1
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{dobre_grafy/rameno_odezva_a_porucha_leadlagmozna_-1.eps}
+\caption{rameno odezva a porucha leadlagmozna -1.eps}
+\label{ram_ob1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{dobre_grafy/rameno_odezva_a_porucha_leadlagmozna_akcnizasah_-1.eps}
+\caption{rameno odezva a porucha leadlagmozna akcnizasah -1.eps}
+\label{ram_ob1_akc}
+\end{figure}
+% leadlagmozna -1 -- end
+
+\subsection{Druhý obecný regulátor 2 řádu}
+
+% leadlagmozna2 -1
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{dobre_grafy/rameno_odezva_a_porucha_leadlagmozna2_-1.eps}
+\caption{rameno odezva a porucha leadlagmozna2 -1.eps}
+\label{ram_ob2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{dobre_grafy/rameno_odezva_a_porucha_leadlagmozna2_akcnizasah-1.eps}
+\caption{rameno odezva a porucha leadlagmozna2 akcnizasah-1.eps}
+\label{ram_ob2_akc}
+\end{figure}
+% leadlagmozna2 -1 -- end
 
 \end{document}
