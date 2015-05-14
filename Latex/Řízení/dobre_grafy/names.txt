@@ -1,0 +1,11 @@
+names.txt
+rameno_odezva_a_porucha_leadlagmozna_-1.eps
+rameno_odezva_a_porucha_leadlagmozna2_-1.eps
+rameno_odezva_a_porucha_leadlagmozna2_akcnizasah-1.eps
+rameno_odezva_a_porucha_leadlagmozna_2pi.eps
+rameno_odezva_a_porucha_leadlagmozna_akcnizasah_-1.eps
+rameno_odezva_a_porucha_leadlagmozna_akcnizasah_2pi.eps
+rameno_odezva_a_porucha_P_-1.eps
+rameno_odezva_a_porucha_P_akcnizasah_-1.eps
+rameno_odezva_na1_P_akcnizasah.eps
+rameno_odezva_na1_P.eps

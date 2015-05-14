@@ -1,9 +1,0 @@
-% load('workspace2.mat');
-x = tf('s');
-Hlin = Clin/(s*eye(length(Alin)) - Alin)*Blin + Dlin;
-Hlin = minreal(Hlin);
-
-H_kyv = Hlin(1);
-Hk_num = H_kyv.num{1};
-Hk_den = H_kyv.den{1};
-
