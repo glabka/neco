@@ -67,3 +67,11 @@
 * **Pozor:** všechny regulátory jsou rovnou navrženy tak, že je nemusíme dělit 16.
 * P regulator ramene. 0.1 je libové až na to, že to teda nemá nenulovou ustálenou odchylku.
 * Dále jsme rltoolem udělali regulátor na kyvadlo, který je docela nanic.
+
+
+#Co ještě doměřit
+* pro regulátory ramene naměřit odezvu na **poruchu** (strčit do toho)
+* ideální by bylo mít všude stejné poruchy a **stejné reference**, aby to šlo porovnávat,
+	ale realisticky by mohlo stačit, kdybychom naměřili alespoň odezvy pro **stejné** reference
+	pro regulátory ramene
+* POZOR: naměřená hodnota pro odezvu na referenci pi u regulátoru ramene navrženým rltoolem ("lead-lag") se neustálila na požadované hodnotě - což jsme si dřív mysleli, že dělá. Mohli bychom zkusit k němu přičíst integrátor - (1/s) vynásobené něčím malým, aby to moc nezměnilo průběh, jen odladilo to ustalování.
