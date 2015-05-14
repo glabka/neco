@@ -30,11 +30,18 @@
 \pagebreak
 
 \section{Regulátor úhlu natočení kyvadla}
-Regulátor pro kyvadlo jsme navrhovali tak, aby co nejrychleji a s co nejmenším překmitem reguloval polohu kyvadla vždy do spodní polohy, tedy na hodnotu $\varphi_p=-90^{\circ}=-\frac{\pi}{2}$. Každý regulátor jsme vždy nejdříve navrhli nějakou metodou na linearizovaném systému v pracovním bodě $\mathbf{x_0} = \left[\varphi_{m0}, \varphi_{p0}, \dot{\varphi}_{m0}, \dot{\varphi}_{p0}\right] = \left[0, -\frac{\pi}{2}, 0, 0\right]$, potom jsme ho vyzkoušeli na linearizovaném a nelineárním modelu a zkontrolovali jsme, že se chová rozumně - především jsme kontrolovali, že vstupní saturace systému nepokazí odezvy. Až pokud regulátor obstál na linearizovaném i nelineárním modelu, vyzkoušeli jsme ho na reálném systému. Zapojení pro testování regulátorů na následujícím obrázku:
+Regulátor pro kyvadlo jsme navrhovali tak, aby co nejrychleji a s co nejmenším překmitem reguloval polohu kyvadla vždy do spodní polohy, tedy na hodnotu $\varphi_p=-90^{\circ}=-\frac{\pi}{2}$. Každý regulátor jsme vždy nejdříve navrhli nějakou metodou na linearizovaném systému v pracovním bodě $\mathbf{x_0} = \left[\varphi_{m0}, \varphi_{p0}, \dot{\varphi}_{m0}, \dot{\varphi}_{p0}\right] = \left[0, -\frac{\pi}{2}, 0, 0\right]$, potom jsme ho vyzkoušeli na linearizovaném a nelineárním modelu a zkontrolovali jsme, že se chová rozumně - především jsme kontrolovali, že vstupní saturace systému nepokazí odezvy. Až pokud regulátor obstál na linearizovaném i nelineárním modelu, vyzkoušeli jsme ho na reálném systému. Zapojení pro testování regulátorů je na následujícím obrázku:
 \begin{figure}[H]
 	\centering
     \includegraphics[scale=0.25]{schema_rizeni_nanecisto}
     \caption{Testovací zapojení regulátorů}
+\end{figure}
+
+Při regulování kyvadla jsme se setkali s problémem, který se nám nepodařilo rozumně odstranit, ani odejít. Senzor polohy kyvadla totiž někdy vynechával (což mohlo být způsobeno senzorem kyvadla, nebo nestabilní komunikací mezi MATLABem a řídicí elektronikou), a takto vzniklá chyba se integrovala, kvůli čemuž se někdy neustálila odchylka systému na nule, i když kyvadlo bylo ve svislé poloze, a rameno se stále točilo. Tuto chybu senzoru lze dobře vidět na následujícím grafu odezvy kyvadla na poruchu bez regulátoru (dva "skoky" jinak pseudospojitého signálu). Samotné kyvadlo se jinak ustálí za velmi dlouhou dobu - až 20 sekund.
+\begin{figure}[H]
+	\centering
+    \includegraphics[scale=0.45]{odezva_kyvadlo}
+    \caption{Odezva kyvadla na poruchu}
 \end{figure}
 
 \subsection{Obecný regulátor, navržený polynomiálními metodami}
@@ -50,7 +57,7 @@ Výsledný přenos regulátoru:
 \begin{align*}
 C = \frac{13,09s^2 - 354,3s - 1981}{16s^2 + 879,7 + 20820}
 \end{align*}
-Příklad odezvy kyvadla s tímto regulátorem na poruchu je na grafech na další stránce. Z grafů je vidět, že kyvadlo se neustaluje na nulové odchylce, což je způsobeno chybou enkoderových snímačů (nebo komunikace řídicího modulu s MATLABem), které někdy vynechávají kroky. Tato chyba se naintegruje a má za následek odchylku od reference, i když je kyvadlo už ve skutečnosti ustálené.
+Příklad odezvy kyvadla s tímto regulátorem na poruchu je na grafech níže. Z grafů je vidět, že kyvadlo se neustaluje na nulové odchylce, což je způsobeno zmiňovanou chybou senzoru.
 \newline
 \newline
 Až na tuto chybu ale regulátor funguje velmi dobře a kyvadlo stabilizuje vždy maximálně do dvou sekund.
@@ -78,7 +85,7 @@ Přenos, navržený autotunem:
 \begin{align*}
 C = -100,67\cdot\frac{(s+10,68)(s+5,715)}{s(s+238)}
 \end{align*}
-Následují jsou grafy odezvy kyvadla na poruchu. Tento regulátor stabilizuje velmi rychle - okolo jedné sekundy, ale kvůli nedokonalosti modelu, který nepočítá s vlivem rychlosti ramene na výchylku kyvadla, ustálenému akčnímu zásahu, který není nulový, a také kvůli již zmiňované chybě enkodérů, se systém s regulátorem po delší době destabilizuje.
+Následují jsou grafy odezvy kyvadla na poruchu. Tento regulátor stabilizuje velmi rychle - okolo jedné sekundy, ale kvůli nedokonalosti modelu, který nepočítá s vlivem rychlosti ramene na výchylku kyvadla, ustálenému akčnímu zásahu, který není nulový, a také kvůli chybě senzoru, se systém s regulátorem po delší době (asi 20 sekund) destabilizuje.
 \begin{figure}[H]
 	\centering
     \includegraphics[scale=0.55]{odezva_kyvadlo_PID}
@@ -90,6 +97,9 @@ Následují jsou grafy odezvy kyvadla na poruchu. Tento regulátor stabilizuje v
     \caption{Akční zásah PID regulátoru}
 \end{figure}
 
+\section{Závěr}
+Z námi navržených regulátorů nejlépe fungoval pro rameno regulátor, navržený pomocí rltoolu, a pro kyvadlo regulátor, navržený polynomiálními metodami. Ale i jednoduchý P regulátor polohy ramene nás překvapil tím, jak dobře fungoval. Na druhou stranu PID regulátor kyvadla se příliš neosvědčil hlavně kvůli své tendenci se postupně destabilizovat, i když jinak reguluje velmi rychle a s malým překmitem. Také jsme navrhli několik dalších regulátorů, které měly své výhody, jako například P regulátor pro kyvadlo (se zesílením $P=-0.2$), který fungoval také překvapivě dobře a neměl problém s "ujížděním", jako PID, nebo další obecné regulátory pro rameno, které často regulovaly velmi rychle a bez překmitu, ale měly problém s ustálením se na nenulové odchylce kvůli zóně necitlivosti vstupu, proto jsme je nevybrali mezi čtyři uvedené.
+\newline
 
 
 \end{document}
